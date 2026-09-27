@@ -19,7 +19,7 @@ import { FOUNDER } from '@/data/founder';
 import { COMPANY } from '@/data/company';
 
 export const metadata: Metadata = {
-  title: 'Bhavin Shankur — Co-Founder & CEO | Orbion',
+  title: 'Bhavin Shankur — Co-Founder & CEO',
   description:
     'Profile and technical dossier of Bhavin Shankur, Co-Founder & CEO of Orbion. Engineering the AI Operating System for modern businesses.',
 };
@@ -107,12 +107,17 @@ export default function FounderPage() {
             </p>
 
             {/* Quick Actions */}
-            <div className="flex flex-wrap items-center gap-4 mt-8">
+            <div className="flex flex-wrap items-center gap-3 mt-8">
               <Link href="/contact">
                 <Button variant="primary" size="md">
                   Initiate Dialogue
                 </Button>
               </Link>
+              <a href="#portfolios">
+                <Button variant="outline" size="md" className="font-mono text-xs">
+                  <span>Explore Portfolios ↓</span>
+                </Button>
+              </a>
               <a href="mailto:exobhavinss@gmail.com">
                 <Button variant="outline" size="md" className="font-mono text-xs">
                   <Mail className="w-3.5 h-3.5 mr-2 text-brand-accent" />
@@ -162,7 +167,7 @@ export default function FounderPage() {
                 <span className="font-mono text-xs uppercase tracking-wider text-text-muted block mb-4">
                   VERIFIED CHANNELS &amp; REPOSITORIES
                 </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {FOUNDER.links.map((link) => (
                     <a
                       key={link.platform}
@@ -221,6 +226,67 @@ export default function FounderPage() {
                   Advanced Data Structures • Machine Learning • Neural Networks • Distributed Systems • Artificial Intelligence • Statistical Foundations.
                 </div>
               </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Explore the Founder — External Portfolios & Dossiers */}
+      <Section padding="lg" className="border-b border-border-hairline bg-surface-subtle/50 relative overflow-hidden" id="portfolios">
+        <Container size="lg">
+          <div className="max-w-4xl mx-auto flex flex-col space-y-8">
+            <div className="text-left">
+              <div className="flex items-center gap-2 font-mono text-xs text-brand-cyan uppercase tracking-wider mb-2">
+                <Code2 className="w-3.5 h-3.5" />
+                <span>EXTERNAL PORTFOLIOS &amp; WORK</span>
+              </div>
+              <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
+                Explore The Founder
+              </h2>
+              <p className="font-sans text-sm sm:text-base text-text-secondary mt-2 max-w-2xl leading-relaxed">
+                Independent portfolios highlighting Bhavin&apos;s software engineering projects, system architecture experiments, and personal journey.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {FOUNDER.portfolios.map((portfolio) => (
+                <a
+                  key={portfolio.id}
+                  href={portfolio.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative p-6 sm:p-8 rounded-xs bg-surface-card border border-border-hairline hover:border-brand-accent/60 hover:bg-surface-elevated transition-all duration-200 flex flex-col justify-between"
+                  aria-label={`${portfolio.title} — ${portfolio.subtitle} (opens in a new tab)`}
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[10px] font-medium text-brand-cyan uppercase tracking-wider px-2 py-0.5 rounded-2xs bg-brand-cyan/10 border border-brand-cyan/20">
+                        {portfolio.category}
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-text-muted group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                    </div>
+
+                    <div>
+                      <h3 className="font-sans text-xl font-semibold text-white mb-1.5 group-hover:text-white transition-colors">
+                        {portfolio.title}
+                      </h3>
+                      <p className="font-mono text-xs text-brand-accent mb-3">
+                        {portfolio.subtitle}
+                      </p>
+                      <p className="font-sans text-sm text-text-secondary leading-relaxed">
+                        {portfolio.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-5 mt-6 border-t border-border-hairline flex items-center justify-between font-mono text-xs text-text-primary group-hover:text-white transition-colors">
+                    <span className="font-medium">{portfolio.actionText}</span>
+                    <span className="text-brand-accent group-hover:text-white group-hover:translate-x-1 transition-all duration-200">
+                      →
+                    </span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </Container>

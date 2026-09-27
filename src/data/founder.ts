@@ -45,4 +45,24 @@ export const FOUNDER: FounderInfo = {
       username: 'exobhavinss@gmail.com',
     },
   ],
+  portfolios: [
+    {
+      id: 'developer',
+      title: 'Developer Portfolio',
+      category: 'TECHNICAL & ENGINEERING',
+      subtitle: 'Technical work, projects & engineering',
+      description: "Explore Bhavin's technical work, projects, and development experience.",
+      url: 'https://developerportfolio-theta.vercel.app/',
+      actionText: 'View Developer Portfolio',
+    },
+    {
+      id: 'personal',
+      title: 'Personal Portfolio',
+      category: 'FOUNDER & PERSONAL JOURNEY',
+      subtitle: 'Personal background, journey & interests',
+      description: "Learn more about Bhavin's background, journey, interests, and personal work.",
+      url: 'https://personal-portfolio-wvio.vercel.app/',
+      actionText: 'View Personal Portfolio',
+    },
+  ],
 };

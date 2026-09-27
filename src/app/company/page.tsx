@@ -17,7 +17,7 @@ import { Container, Section, Card, Badge, Button, Divider } from '@/components/u
 import { COMPANY } from '@/data/company';
 
 export const metadata: Metadata = {
-  title: 'Company & Vision — About Orbion | Orbion',
+  title: 'Company & Vision — About Orbion',
   description:
     'Orbion is an early-stage technology startup engineering the AI Operating System for modern businesses. Learn about our origin, thesis, and long-term trajectory.',
 };

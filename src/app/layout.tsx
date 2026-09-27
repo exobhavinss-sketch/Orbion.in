@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: COMPANY.name,
     images: [
       {
-        url: '/brand/png/orbion-logo-horizontal-white.png',
+        url: '/brand/png/orbion-logo-white.png',
         width: 1200,
         height: 630,
         alt: 'Orbion — AI Operating System for Modern Businesses',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: `${COMPANY.name} — AI Operating System for Modern Businesses`,
     description: COMPANY.visionSummary,
     creator: '@BhavinShankur',
-    images: ['/brand/png/orbion-logo-horizontal-white.png'],
+    images: ['/brand/png/orbion-logo-white.png'],
   },
   robots: {
     index: true,
@@ -102,7 +102,7 @@ const jsonLd = {
       url: 'https://orbion.in',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://orbion.in/brand/png/orbion-logo-horizontal-white.png',
+        url: 'https://orbion.in/brand/png/orbion-logo-white.png',
       },
       founder: {
         '@type': 'Person',

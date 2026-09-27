@@ -12,6 +12,16 @@ export interface SocialLink {
   username?: string;
 }
 
+export interface PortfolioLink {
+  id: string;
+  title: string;
+  category: string;
+  subtitle: string;
+  description: string;
+  url: string;
+  actionText: string;
+}
+
 export interface FounderInfo {
   name: string;
   role: string;
@@ -21,6 +31,7 @@ export interface FounderInfo {
   vision: string;
   bio: string[];
   links: SocialLink[];
+  portfolios: PortfolioLink[];
 }
 
 export interface CompanyMeta {

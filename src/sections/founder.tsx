@@ -105,13 +105,51 @@ export function FounderSection() {
                     href="/founder"
                     className="inline-flex items-center gap-1 text-xs font-mono text-white hover:text-brand-cyan transition-colors"
                   >
-                    <span>Full Profile →</span>
+                    <span>Meet Bhavin →</span>
                   </Link>
                 </div>
               </div>
             </div>
           </div>
         </Card>
+
+        {/* Founder Supporting Portfolios */}
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {FOUNDER.portfolios.map((portfolio) => (
+            <a
+              key={portfolio.id}
+              href={portfolio.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-5 rounded-xs bg-surface-card/60 border border-border-hairline hover:border-brand-accent/50 hover:bg-surface-elevated transition-all duration-200 flex flex-col justify-between"
+              aria-label={`${portfolio.title}: ${portfolio.description} (opens in a new tab)`}
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="font-mono text-[10px] text-text-muted group-hover:text-brand-cyan tracking-wider uppercase transition-colors">
+                    {portfolio.category}
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-text-muted group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                </div>
+                <h4 className="font-sans text-base font-semibold text-white mb-1.5 group-hover:text-white transition-colors">
+                  {portfolio.title}
+                </h4>
+                <p className="font-sans text-xs text-text-secondary leading-relaxed">
+                  {portfolio.description}
+                </p>
+              </div>
+
+              <div className="pt-3 mt-4 border-t border-border-hairline/60 flex items-center justify-between font-mono text-xs">
+                <span className="text-brand-accent group-hover:text-white transition-colors">
+                  {portfolio.actionText}
+                </span>
+                <span className="text-text-muted group-hover:text-white transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </Section>
   );

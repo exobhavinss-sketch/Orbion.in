@@ -39,7 +39,7 @@ export const FOOTER_SECTIONS = [
   {
     title: 'Founder',
     links: [
-      { label: 'Bhavin Shankur Profile', href: '/founder' },
+      { label: 'Meet Bhavin', href: '/founder' },
       { label: 'Academic Foundation', href: '/founder#academics' },
       { label: 'Research Interests', href: '/founder#interests' },
       { label: 'Direct Dialogue', href: '/contact' },
