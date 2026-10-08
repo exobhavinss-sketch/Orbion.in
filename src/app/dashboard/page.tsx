@@ -1,0 +1,232 @@
+import React from 'react';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { auth } from '@/lib/auth';
+import { Badge, Button } from '@/components/ui';
+import { LogoutButton } from './dashboard-client';
+import {
+  Activity,
+  Cpu,
+  Database,
+  Layers,
+  ShieldCheck,
+  User as UserIcon,
+  Clock,
+  Terminal,
+  ArrowRight,
+} from 'lucide-react';
+
+export const metadata = {
+  title: 'Dashboard — Orbion AI Operating System',
+  description: 'Enterprise console and session management for Orbion Operating System.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
+export default async function DashboardPage() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect('/login?callbackUrl=/dashboard');
+  }
+
+  const user = session.user;
+
+  return (
+    <div className="min-h-screen bg-canvas pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        {/* Top Header Bar */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-border-hairline">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <Badge variant="status" indicatorColor="cyan">
+                LOCAL SYSTEM SESSION ACTIVE
+              </Badge>
+              <span className="font-mono text-[10px] text-text-muted">
+                SESSION_ID: {session.session.id.slice(0, 12)}...
+              </span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-semibold text-text-pure tracking-tight">
+              Enterprise Dashboard
+            </h1>
+            <p className="text-xs sm:text-sm text-text-secondary mt-1">
+              Authenticated console for {user.name ? `${user.name} (${user.email})` : user.email}.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link href="/technology">
+              <Button variant="secondary" size="sm">
+                System Specs
+              </Button>
+            </Link>
+            <LogoutButton />
+          </div>
+        </div>
+
+        {/* System Telemetry Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
+            <div className="flex items-center justify-between text-text-muted">
+              <span className="font-mono text-[11px] uppercase tracking-wider">Local Database</span>
+              <Database className="w-4 h-4 text-brand-cyan" />
+            </div>
+            <div className="text-xl font-semibold text-text-pure font-mono">SQLite (Local)</div>
+            <div className="text-[11px] text-text-secondary">
+              File: <code className="text-text-muted font-mono">./prisma/dev.db</code>
+            </div>
+          </div>
+
+          <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
+            <div className="flex items-center justify-between text-text-muted">
+              <span className="font-mono text-[11px] uppercase tracking-wider">Auth Framework</span>
+              <ShieldCheck className="w-4 h-4 text-brand-accent" />
+            </div>
+            <div className="text-xl font-semibold text-text-pure font-mono">Better Auth v1.7</div>
+            <div className="text-[11px] text-text-secondary">Prisma 7 Adapter & SQLite Driver</div>
+          </div>
+
+          <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
+            <div className="flex items-center justify-between text-text-muted">
+              <span className="font-mono text-[11px] uppercase tracking-wider">Session Latency</span>
+              <Activity className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="text-xl font-semibold text-text-pure font-mono">&lt; 1 ms</div>
+            <div className="text-[11px] text-text-secondary">Zero-network local execution</div>
+          </div>
+
+          <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
+            <div className="flex items-center justify-between text-text-muted">
+              <span className="font-mono text-[11px] uppercase tracking-wider">Autonomous Agents</span>
+              <Cpu className="w-4 h-4 text-purple-400" />
+            </div>
+            <div className="text-xl font-semibold text-text-pure font-mono">Ready</div>
+            <div className="text-[11px] text-text-secondary">Model Context Protocol ready</div>
+          </div>
+        </div>
+
+        {/* Main Content Dossier & Panels */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* User Account Dossier */}
+          <div className="lg:col-span-1 bg-surface-subtle border border-border-hairline rounded-sm p-6 space-y-6">
+            <div className="flex items-center justify-between border-b border-border-hairline pb-4">
+              <div className="flex items-center gap-2">
+                <UserIcon className="w-4 h-4 text-brand-accent" />
+                <h2 className="text-sm font-semibold text-text-pure uppercase tracking-wider font-mono">
+                  User Dossier
+                </h2>
+              </div>
+              <Badge variant="accent" className="text-[10px]">
+                AUTHENTICATED
+              </Badge>
+            </div>
+
+            <div className="space-y-4 text-xs font-mono">
+              <div>
+                <span className="text-text-muted uppercase text-[10px] block mb-1">User Identifier</span>
+                <span className="text-text-pure bg-surface-card px-2 py-1 rounded-xs border border-border-hairline block break-all">
+                  {user.id}
+                </span>
+              </div>
+
+              <div>
+                <span className="text-text-muted uppercase text-[10px] block mb-1">Display Name</span>
+                <span className="text-text-primary block">{user.name || 'Not Provided'}</span>
+              </div>
+
+              <div>
+                <span className="text-text-muted uppercase text-[10px] block mb-1">Email Endpoint</span>
+                <span className="text-text-primary block break-all">{user.email}</span>
+              </div>
+
+              <div>
+                <span className="text-text-muted uppercase text-[10px] block mb-1">Verification Status</span>
+                <span className="text-emerald-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Local Verified Account
+                </span>
+              </div>
+
+              <div>
+                <span className="text-text-muted uppercase text-[10px] block mb-1">Session Expiration</span>
+                <div className="text-text-secondary flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-text-muted" />
+                  <span>{new Date(session.session.expiresAt).toLocaleString()}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* AI Operating System Shell / Status */}
+          <div className="lg:col-span-2 bg-surface-subtle border border-border-hairline rounded-sm p-6 space-y-6">
+            <div className="flex items-center justify-between border-b border-border-hairline pb-4">
+              <div className="flex items-center gap-2">
+                <Terminal className="w-4 h-4 text-brand-cyan" />
+                <h2 className="text-sm font-semibold text-text-pure uppercase tracking-wider font-mono">
+                  System Architecture Status
+                </h2>
+              </div>
+              <span className="font-mono text-[10px] text-text-muted">ORB-NODE-01</span>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-canvas border border-border-hairline rounded-xs p-4 font-mono text-xs space-y-2 text-text-secondary">
+                <p className="text-brand-cyan">
+                  $ orbion-os --version
+                </p>
+                <p className="text-text-muted">
+                  &gt; Orbion Architecture v1.0.0 (Production Node Next.js 15.2.1 / React 19)
+                </p>
+                <p className="text-text-muted">
+                  &gt; Database Storage: Local SQLite engine at prisma/dev.db (Strict zero-cloud data sovereignty)
+                </p>
+                <p className="text-emerald-400">
+                  &gt; Session Status: Active session for {user.email}. Authentication validated server-side.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <Link
+                  href="/technology"
+                  className="group p-4 rounded-xs border border-border-hairline hover:border-brand-accent/40 bg-surface-card hover:bg-surface-elevated transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[11px] text-brand-accent">CORE ARCHITECTURE</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:text-text-pure transition-colors" />
+                    </div>
+                    <p className="text-sm font-medium text-text-pure">AI Agent Telemetry</p>
+                    <p className="text-xs text-text-muted">
+                      Inspect multi-node orchestration, MCP protocol bindings, and state persistence.
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/company"
+                  className="group p-4 rounded-xs border border-border-hairline hover:border-brand-accent/40 bg-surface-card hover:bg-surface-elevated transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[11px] text-brand-cyan">ENTERPRISE DOSSIER</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:text-text-pure transition-colors" />
+                    </div>
+                    <p className="text-sm font-medium text-text-pure">Company &amp; Origins</p>
+                    <p className="text-xs text-text-muted">
+                      Review company governance, founder thesis, and architectural roadmaps.
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

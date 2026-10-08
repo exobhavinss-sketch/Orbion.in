@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, User as UserIcon } from 'lucide-react';
 import { BRAND_ASSETS } from '@/assets/brand';
 import { PRIMARY_NAV } from '@/data/navigation';
 import { Button, Badge } from '@/components/ui';
+import { useSession } from '@/lib/auth-client';
 
 export function Navbar() {
+  const { data: session } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -74,16 +76,25 @@ export function Navbar() {
         </nav>
 
         {/* Desktop CTA & Status */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <Badge variant="status" indicatorColor="brand" className="hidden lg:inline-flex text-[10px]">
             ARCH_V1.0
           </Badge>
 
-          <Link href="/technology">
-            <Button variant="secondary" size="sm">
-              Architecture
-            </Button>
-          </Link>
+          {session?.user ? (
+            <Link href="/dashboard">
+              <Button variant="secondary" size="sm" className="gap-1.5 font-mono text-xs">
+                <UserIcon className="w-3.5 h-3.5 text-brand-cyan" />
+                <span>Dashboard</span>
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/login">
+              <Button variant="secondary" size="sm">
+                Sign In
+              </Button>
+            </Link>
+          )}
 
           <Link href="/contact">
             <Button variant="primary" size="sm">
@@ -94,11 +105,20 @@ export function Navbar() {
 
         {/* Mobile Menu Trigger */}
         <div className="flex md:hidden items-center gap-3">
-          <Link href="/contact">
-            <Button variant="primary" size="sm" className="h-8 px-3 text-xs">
-              Contact
-            </Button>
-          </Link>
+          {session?.user ? (
+            <Link href="/dashboard">
+              <Button variant="secondary" size="sm" className="h-8 px-2.5 text-xs font-mono gap-1">
+                <UserIcon className="w-3 h-3 text-brand-cyan" />
+                <span>OS</span>
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/login">
+              <Button variant="secondary" size="sm" className="h-8 px-2.5 text-xs">
+                Sign In
+              </Button>
+            </Link>
+          )}
 
           <button
             type="button"
@@ -138,6 +158,28 @@ export function Navbar() {
               <span>ORBION OPERATING SYSTEM</span>
               <span className="text-brand-accent">ONLINE</span>
             </div>
+
+            {session?.user ? (
+              <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                <Button variant="secondary" size="lg" className="w-full justify-center gap-2 font-mono text-xs">
+                  <UserIcon className="w-4 h-4 text-brand-cyan" />
+                  <span>Enter Enterprise Dashboard</span>
+                </Button>
+              </Link>
+            ) : (
+              <div className="grid grid-cols-2 gap-2">
+                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="secondary" size="md" className="w-full justify-center">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="secondary" size="md" className="w-full justify-center">
+                    Register
+                  </Button>
+                </Link>
+              </div>
+            )}
 
             <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="primary" size="lg" className="w-full">

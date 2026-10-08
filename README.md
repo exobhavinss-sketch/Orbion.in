@@ -23,15 +23,17 @@
   <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Framework-Next.js%2015-050508?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 15"></a>
   <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/Language-TypeScript%205.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5.8"></a>
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Styling-Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"></a>
-  <a href="ARCHITECTURE.md"><img src="https://img.shields.io/badge/Architecture-Instrument--Grade-111111?style=for-the-badge" alt="Architecture"></a>
+  <a href="https://www.prisma.io"><img src="https://img.shields.io/badge/ORM-Prisma%207-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma 7"></a>
+  <a href="https://better-auth.com"><img src="https://img.shields.io/badge/Auth-Better%20Auth-10B981?style=for-the-badge" alt="Better Auth"></a>
 </p>
 
 <p align="center">
   <a href="https://orbion.in">🌐 <b>Live Platform</b></a> &nbsp;•&nbsp;
   <a href="#1-project-philosophy--design-direction">📐 <b>Design System</b></a> &nbsp;•&nbsp;
-  <a href="ARCHITECTURE.md">🏛️ <b>Architecture</b></a> &nbsp;•&nbsp;
-  <a href="#6-brand-identity--assets">🎨 <b>Brand Assets</b></a> &nbsp;•&nbsp;
-  <a href="#4-local-development--scripts">⚡ <b>Quickstart</b></a>
+  <a href="#3-authentication-architecture">🔐 <b>Authentication</b></a> &nbsp;•&nbsp;
+  <a href="#4-local-development--scripts">⚡ <b>Quickstart</b></a> &nbsp;•&nbsp;
+  <a href="#5-deployment-guide">🚀 <b>Deployment</b></a> &nbsp;•&nbsp;
+  <a href="#7-brand-identity--assets">🎨 <b>Brand Assets</b></a>
 </p>
 
 ---
@@ -48,135 +50,151 @@ Orbion is an early-stage deep-tech startup building an **AI Operating System** d
 ---
 
 ## 2. Technology Stack
-* **Framework**: [Next.js](https://nextjs.org/) 15 (App Router, Server Components by default)
-* **Language**: [TypeScript](https://www.typescriptlang.org/) 5.8
+* **Framework**: [Next.js](https://nextjs.org/) 15 (App Router, Server Components, Route Handlers)
+* **Frontend**: [React](https://react.dev/) 19 & [TypeScript](https://www.typescriptlang.org/) 5.8
 * **Styling**: [Tailwind CSS](https://tailwindcss.com/) 3.4 + CSS Variables + PostCSS
-* **Icons & Assets**: Native SVG vectors from [`public/brand`](public/brand/) + `lucide-react`
-* **Performance**: 100% static prerendering, zero runtime overhead.
+* **ORM & Database**: [Prisma](https://www.prisma.io/) 7.10 with SQLite (`@prisma/adapter-better-sqlite3`)
+* **Authentication**: [Better Auth](https://better-auth.com/) 1.7 with `@better-auth/prisma-adapter`
+* **Icons & UI**: [Lucide React](https://lucide.dev/) + Custom SVG brand marks
+* **Runtime**: Node.js 20+
 
 ---
 
-## 3. Project Structure
+## 3. Authentication Architecture
+
+The Orbion platform includes a local-first authentication system powered by **Better Auth** and **Prisma ORM 7**:
+
 ```
-├── .github/
-│   └── workflows/
-│       └── deploy.yml       # Automated GitHub Pages CI/CD workflow
-├── public/
-│   ├── .nojekyll            # Prevents GitHub Pages from ignoring _next assets
-│   ├── CNAME                # Custom domain pointer (orbion.in)
-│   ├── brand/
-│   │   ├── orbion-banner.png# Official 2400x920 High-DPI architectural repository banner
-│   │   ├── orbion-banner.svg# Official vector banner with telemetry & orbital geometry
-│   │   ├── svg/             # Official Orbion vector logos, marks, and app icons
-│   │   ├── png/             # Multi-contrast PNG renders (dark, white, transparent)
-│   │   └── favicons/        # Multi-resolution favicons (16px to 512px)
-│   ├── favicon.svg          # Primary vector favicon
-│   └── favicon.png          # Fallback raster favicon
-├── src/
-│   ├── app/
-│   │   ├── company/         # /company route
-│   │   ├── contact/         # /contact route
-│   │   ├── founder/         # /founder route
-│   │   ├── technology/      # /technology route
-│   │   ├── globals.css      # Design tokens, custom scrollbars, subtle technical grids
-│   │   ├── layout.tsx       # Root layout with Geist fonts, theme color, SEO metadata
-│   │   ├── page.tsx         # Architectural verification canvas
-│   │   ├── robots.ts        # Dynamic/static robots.txt generator
-│   │   └── sitemap.ts       # Dynamic/static sitemap.xml generator
-│   ├── components/          # Modular UI design system components
-│   ├── data/                # Static company, founder, and navigation data
-│   ├── layouts/             # Persistent site navigation and footer layouts
-│   ├── lib/
-│   │   ├── constants.ts     # Centralized brand, founder, and company constants
-│   │   └── utils.ts         # Class merging and layout utilities (clsx + twMerge)
-│   └── types/
-│       └── index.ts         # Core TypeScript schemas and data interfaces
-├── .env.example             # Safe placeholder template for environment variables
-├── netlify.toml             # Netlify deployment and Next.js plugin configuration
-├── tailwind.config.ts       # Tonal Pitch & Void design system configuration
-├── tsconfig.json            # Strict TypeScript configuration with @/* path alias
-├── next.config.mjs          # Multi-target Next.js config (Node runtime + static export)
-└── package.json             # Unified scripts and dependencies
+Orbion Next.js (App Router)
+       ↓
+Better Auth API Route (/api/auth/[...all])
+       ↓
+@better-auth/prisma-adapter
+       ↓
+Prisma 7 SQLite Adapter (@prisma/adapter-better-sqlite3)
+       ↓
+prisma/dev.db (Local Development Database)
 ```
+
+### Key Security & Authentication Features
+* **Credential Authentication**: Secure user sign-up and sign-in with automatic cryptographic password hashing (Scrypt/Argon2).
+* **Protected Routes**: Server-side dashboard protection (`/dashboard`) that validates sessions before rendering and redirects unauthenticated visitors with sanitized callbacks.
+* **Session Management**: Cryptographically signed tokens stored in the `Session` table with automatic expiration tracking.
+* **Origin & CSRF Defense**: Origin validation active by default; untrusted external origins receive `403 Forbidden`. No wildcard `*` origins allowed.
+* **Zero Client Leakage**: Private environment secrets (`BETTER_AUTH_SECRET`, database paths) remain strictly server-side and are never exposed to browser bundles.
+
+> [!IMPORTANT]
+> **Production Database Notice**:
+> The current SQLite authentication database (`prisma/dev.db`) is intended for local development. Public production deployment requires a remote production database (such as PostgreSQL, MySQL, or Prisma Postgres) accessible to the deployed server runtime.
 
 ---
 
 ## 4. Local Development & Scripts
 
-### Run Locally
+### Prerequisites
+* Node.js 20 or higher
+* npm 10 or higher
+
+### Quickstart Setup
 ```bash
+# 1. Clone repository
+git clone https://github.com/exobhavinss-sketch/Orbion.in.git
+cd Orbion.in
+
+# 2. Install dependencies (automatically runs prisma generate)
 npm install
+
+# 3. Create your local environment file
+cp .env.example .env.local
+
+# 4. Generate Prisma client & start dev server
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-### Type Check & Lint
+### Development Commands
 ```bash
-npm run typecheck
-npm run lint
-```
+# Start development server
+npm run dev
 
-### Production Build (Node / SSR / ISR)
-Used by Vercel, Netlify, and Render:
-```bash
+# Validate TypeScript types
+npm run typecheck
+
+# Run ESLint validation
+npm run lint
+
+# Validate Prisma schema
+npx prisma validate
+
+# Check migration status
+npx prisma migrate status
+
+# Compile production build
 npm run build
+
+# Start production server (respects $PORT)
 npm run start
 ```
 
-### Static Export Build (HTML / CSS / JS)
-Used by GitHub Pages (generates static output in `./out`):
-```bash
-npm run build:export
-```
-
 ---
 
-## 5. Deployment Architecture
+## 5. Deployment Guide
 
-The website is engineered for multi-cloud deployment agility. The primary production target is **Vercel**, with full zero-friction compatibility across **Netlify**, **Render**, and **GitHub Pages**.
+Orbion is built with **one unified codebase** ready to deploy across major cloud server platforms.
 
-### A. Vercel (Primary Recommendation)
-1. Import repository `exobhavinss-sketch/Orbion.in` into Vercel.
-2. Vercel automatically detects Next.js:
+### A. Vercel (Recommended)
+1. Import repository `exobhavinss-sketch/Orbion.in` in Vercel.
+2. Vercel automatically detects Next.js 15:
    - **Framework Preset**: Next.js
-   - **Build Command**: `next build`
+   - **Build Command**: `npm run build`
    - **Output Directory**: `.next`
-3. Add Custom Domain:
-   - In Vercel Project Settings > **Domains**, add `orbion.in` and `www.orbion.in`.
-   - Point your DNS A record to `76.76.21.21` and CNAME for `www` to `cname.vercel-dns.com`.
+3. Configure Environment Variables in Project Settings:
+   - `BETTER_AUTH_SECRET`: Random 32-byte secret
+   - `BETTER_AUTH_URL`: `https://orbion.in` (or your Vercel deployment domain)
+   - `DATABASE_URL`: Connection string to your production database
+4. Add Custom Domain `orbion.in` under Domains.
 
-### B. GitHub Pages (Static CI/CD)
-1. In repository **Settings > Pages**:
-   - Under **Build and deployment > Source**, select **GitHub Actions**.
-2. Push to the `main` branch:
-   - The `.github/workflows/deploy.yml` workflow automatically runs `npm run build:export`.
-   - It verifies `out/index.html`, `out/.nojekyll`, and `out/CNAME`.
-   - The deployment artifact `./out` is uploaded and served by GitHub Pages.
-3. Custom Domain:
-   - `public/CNAME` automatically configures `orbion.in`.
-   - In GitHub Pages settings, verify `orbion.in` and enable **Enforce HTTPS**.
-   - Configure DNS A records to: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-
-### C. Netlify (Secondary Target)
-1. Import repository in Netlify dashboard.
-2. The included `netlify.toml` automatically configures:
+### B. Netlify
+1. Connect repository in Netlify dashboard.
+2. Configuration is automated via the repository's `netlify.toml`:
    - **Build Command**: `npm run build`
    - **Publish Directory**: `.next`
    - **Plugin**: `@netlify/plugin-nextjs`
-3. Add Custom Domain `orbion.in` in Netlify Domain Management.
+3. Configure `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, and `DATABASE_URL` in Site Configuration > Environment Variables.
 
-### D. Render (Web Service)
+### C. Render
 1. Create a new **Web Service** on Render connected to `Orbion.in`.
-2. Configure settings:
-   - **Runtime**: `Node`
+2. Configure runtime parameters:
+   - **Environment**: `Node`
    - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm run start`
-   - **Environment Variables**: `NODE_ENV=production`, `PORT=10000`
-3. Add Custom Domain in Render dashboard.
+   - **Start Command**: `npm start`
+3. Set Environment Variables:
+   - `NODE_ENV`: `production`
+   - `PORT`: `10000` (Render default; Next.js automatically binds to `$PORT`)
+   - `BETTER_AUTH_SECRET`: Random 32-byte secret
+   - `BETTER_AUTH_URL`: Your Render public URL
+   - `DATABASE_URL`: Production database URL
 
 ---
 
-## 6. Brand Identity & Visual Assets
+## 6. Environment Variables
+
+Reference template from `.env.example`:
+
+| Variable | Description | Local Default | Production Requirement |
+| :--- | :--- | :--- | :--- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site base URL | `https://orbion.in` | Required for SEO & sitemaps |
+| `PORT` | Local and production port | `3000` | Injected by hosting provider |
+| `DATABASE_URL` | Prisma database connection string | `file:./prisma/dev.db` | Remote DB URL required in production |
+| `BETTER_AUTH_SECRET` | 32-byte random cryptographic secret | Private local secret | Required secret in hosting dashboard |
+| `BETTER_AUTH_URL` | Base URL for Better Auth verification | `http://localhost:3000` | Set to canonical production domain |
+
+> [!CAUTION]
+> Never commit `.env` or `.env.local` to Git. The `.gitignore` file enforces that all `.env` files and SQLite database files (`*.db`) are strictly ignored.
+
+---
+
+## 7. Brand Identity & Visual Assets
 
 All official vectors, logos, and high-resolution assets are organized under [`public/brand/`](public/brand/):
 
@@ -197,4 +215,3 @@ All official vectors, logos, and high-resolution assets are organized under [`pu
 * **Pitch Void** (`#000000` / `#050505`): High-contrast architectural base canvas.
 * **Cyan Telemetry** (`#00E0D6`): Real-time status indicators and satellite telemetry dot.
 * **Monochrome Scale**: `#FFFFFF` (Pure Headlines), `#EDEDED` (Primary Text), `#A1A1AA` (Secondary), `#1C1C1E` (Hairline Border).
-
