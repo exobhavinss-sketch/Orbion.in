@@ -8,6 +8,7 @@ export const BRAND_ASSETS = {
   symbolSvg: '/brand/svg/orbion-symbol.svg',
   faviconSvg: '/brand/svg/orbion-favicon.svg',
   appIconSvg: '/brand/svg/orbion-app-icon.svg',
+  bannerSvg: '/brand/svg/orbion-banner.svg',
 
   // System Favicons
   faviconPng: '/favicon.png',
@@ -18,6 +19,7 @@ export const BRAND_ASSETS = {
   // Raster PNG Assets
   appIconPng: '/brand/png/orbion-app-icon-1024.png',
   appIcon1024Png: '/brand/png/orbion-app-icon-1024.png',
+  bannerPng: '/brand/png/orbion-banner.png',
   logoPngDark: '/brand/png/orbion-logo-dark.png',
   logoPngWhite: '/brand/png/orbion-logo-white.png',
   logoPngTransparent: '/brand/png/orbion-logo-transparent.png',

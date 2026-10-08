@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460">
+  <defs>
+    <!-- Background Radial Glow -->
+    <radialGradient id="heroGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#5B4FFF" stop-opacity="0.22"/>
+      <stop offset="35%" stop-color="#5B4FFF" stop-opacity="0.08"/>
+      <stop offset="65%" stop-color="#00E0D6" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#040407" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Symbol Core Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Linear Gradient for Badge -->
+    <linearGradient id="badgeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
+      <stop offset="100%" stop-color="rgba(91,79,255,0.25)"/>
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E4E4E7"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .font-mono { font-family: 'Geist Mono', 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace; }
+    .font-sans { font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <!-- Deep Canvas -->
+  <rect width="1200" height="460" rx="12" fill="#040406"/>
+
+  <!-- Radial Atmosphere -->
+  <rect width="1200" height="460" rx="12" fill="url(#heroGlow)"/>
+
+  <!-- Architectural Background Grid -->
+  <g opacity="0.18" stroke="rgba(255,255,255,0.15)" stroke-width="0.5">
+    <!-- Horizontal Grid Lines -->
+    <line x1="20" y1="80" x2="1180" y2="80" stroke-dasharray="2 4"/>
+    <line x1="20" y1="140" x2="1180" y2="140" stroke-dasharray="1 8"/>
+    <line x1="20" y1="200" x2="1180" y2="200" stroke-dasharray="1 8"/>
+    <line x1="20" y1="260" x2="1180" y2="260" stroke-dasharray="1 8"/>
+    <line x1="20" y1="320" x2="1180" y2="320" stroke-dasharray="1 8"/>
+    <line x1="20" y1="380" x2="1180" y2="380" stroke-dasharray="2 4"/>
+
+    <!-- Vertical Grid Lines -->
+    <line x1="160" y1="30" x2="160" y2="430" stroke-dasharray="1 8"/>
+    <line x1="380" y1="30" x2="380" y2="430" stroke-dasharray="1 8"/>
+    <line x1="600" y1="30" x2="600" y2="430" stroke-dasharray="2 6"/>
+    <line x1="820" y1="30" x2="820" y2="430" stroke-dasharray="1 8"/>
+    <line x1="1040" y1="30" x2="1040" y2="430" stroke-dasharray="1 8"/>
+  </g>
+
+  <!-- Precision Orbital Rings around Core Symbol -->
+  <g transform="translate(600, 126)" opacity="0.6">
+    <!-- Inner orbital ring -->
+    <circle cx="0" cy="0" r="88" fill="none" stroke="rgba(91, 79, 255, 0.25)" stroke-width="1" stroke-dasharray="2 6"/>
+    <!-- Middle telemetry ring -->
+    <circle cx="0" cy="0" r="132" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+    <!-- Outer orbital ring with satellite markers -->
+    <circle cx="0" cy="0" r="185" fill="none" stroke="rgba(91, 79, 255, 0.12)" stroke-width="1" stroke-dasharray="6 12"/>
+    <circle cx="131" cy="-131" r="2.5" fill="#00E0D6" opacity="0.8"/>
+    <circle cx="-131" cy="131" r="2" fill="#5B4FFF" opacity="0.6"/>
+  </g>
+
+  <!-- Outer Structural Hairline Frame -->
+  <rect x="1" y="1" width="1198" height="458" rx="12" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+  <rect x="12" y="12" width="1176" height="436" rx="8" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+
+  <!-- Architectural Corner Crosshairs -->
+  <g stroke="rgba(255, 255, 255, 0.25)" stroke-width="1">
+    <!-- Top-Left -->
+    <line x1="20" y1="26" x2="32" y2="26"/>
+    <line x1="26" y1="20" x2="26" y2="32"/>
+    <!-- Top-Right -->
+    <line x1="1168" y1="26" x2="1180" y2="26"/>
+    <line x1="1174" y1="20" x2="1174" y2="32"/>
+    <!-- Bottom-Left -->
+    <line x1="20" y1="434" x2="32" y2="434"/>
+    <line x1="26" y1="428" x2="26" y2="440"/>
+    <!-- Bottom-Right -->
+    <line x1="1168" y1="434" x2="1180" y2="434"/>
+    <line x1="1174" y1="428" x2="1174" y2="440"/>
+  </g>
+
+  <!-- Top Metadata Navigation / Telemetry -->
+  <g class="font-mono">
+    <!-- Left telemetry -->
+    <text x="44" y="44" font-size="11" fill="#71717A" letter-spacing="1.5">ORBION TECHNOLOGIES // PLATFORM ARCHITECTURE</text>
+    
+    <!-- Right Live Status Pill -->
+    <g transform="translate(930, 28)">
+      <rect x="0" y="0" width="226" height="26" rx="13" fill="#0A0A0F" stroke="url(#badgeBorder)" stroke-width="1"/>
+      <circle cx="16" cy="13" r="3.5" fill="#00E0D6"/>
+      <circle cx="16" cy="13" r="6" fill="#00E0D6" opacity="0.25"/>
+      <text x="28" y="17" font-size="10.5" fill="#EDEDED" letter-spacing="1">LIVE TELEMETRY: 99.99%</text>
+    </g>
+  </g>
+
+  <!-- ================= CENTRAL BRAND IDENTITY ================= -->
+  <!-- Official Orbion Symbol (Centered at X=600, Y=126, scaled to 84x84) -->
+  <!-- Original symbol viewBox: -70 -70 1140 1140 (width 1140). Scale = 84 / 1140 = ~0.07368 -->
+  <g transform="translate(600, 126)">
+    <g transform="translate(-42, -42) scale(0.07368)">
+      <g transform="translate(70, 70)">
+        
+  <path d="M 871.70 420.99 A 380.00 380.00 0 1 1 579.01 128.30" fill="none" stroke="#5B4FFF" stroke-width="88" stroke-linecap="round"/>
+  <circle cx="500" cy="500" r="142" fill="#5B4FFF"/>
+  <circle cx="805.47" cy="194.53" r="56" fill="#00E0D6"/>
+
+      </g>
+    </g>
+  </g>
+
+  <!-- Official Orbion Wordmark (Centered at X=600) -->
+  <!-- Wordmark bbox width in original: ~3228 - 50 = ~3178. Scale = ~0.076 => width ~241px -->
+  <g transform="translate(600, 206)">
+    <g transform="translate(-124, 0) scale(0.076)">
+      <g transform="translate(0, 0)">
+        <g transform="scale(1,-1)" fill="url(#textGrad)">
+          <path d="M338 -14Q206 -14 128.0 58.5Q50 131 50 266V434Q50 569 128.0 641.5Q206 714 338 714Q470 714 548.0 641.5Q626 569 626 434V266Q626 131 548.0 58.5Q470 -14 338 -14ZM338 104Q412 104 453.0 147.0Q494 190 494 262V438Q494 510 453.0 553.0Q412 596 338 596Q265 596 223.5 553.0Q182 510 182 438V262Q182 190 223.5 147.0Q265 104 338 104Z"/><path d="M764 0V496H888V440H906Q917 470 942.5 484.0Q968 498 1002 498H1062V386H1000Q952 386 921.0 360.5Q890 335 890 282V0Z"/><path d="M1476 -14Q1409 -14 1373.0 9.0Q1337 32 1320 60H1302V0H1178V700H1304V439H1322Q1333 457 1351.5 473.0Q1370 489 1400.5 499.5Q1431 510 1476 510Q1536 510 1587.0 480.5Q1638 451 1669.0 394.0Q1700 337 1700 256V240Q1700 159 1669.0 102.0Q1638 45 1587.0 15.5Q1536 -14 1476 -14ZM1438 96Q1496 96 1535.0 133.5Q1574 171 1574 243V253Q1574 325 1535.5 362.5Q1497 400 1438 400Q1380 400 1341.0 362.5Q1302 325 1302 253V243Q1302 171 1341.0 133.5Q1380 96 1438 96Z"/><path d="M1834 0V496H1960V0ZM1897 554Q1863 554 1839.5 576.0Q1816 598 1816 634Q1816 670 1839.5 692.0Q1863 714 1897 714Q1932 714 1955.0 692.0Q1978 670 1978 634Q1978 598 1955.0 576.0Q1932 554 1897 554Z"/><path d="M2354 -14Q2280 -14 2221.0 16.0Q2162 46 2128.0 103.0Q2094 160 2094 240V256Q2094 336 2128.0 393.0Q2162 450 2221.0 480.0Q2280 510 2354 510Q2428 510 2487.0 480.0Q2546 450 2580.0 393.0Q2614 336 2614 256V240Q2614 160 2580.0 103.0Q2546 46 2487.0 16.0Q2428 -14 2354 -14ZM2354 98Q2412 98 2450.0 135.5Q2488 173 2488 243V253Q2488 323 2450.5 360.5Q2413 398 2354 398Q2296 398 2258.0 360.5Q2220 323 2220 253V243Q2220 173 2258.0 135.5Q2296 98 2354 98Z"/><path d="M2748 0V496H2872V431H2890Q2902 457 2935.0 480.5Q2968 504 3035 504Q3093 504 3136.5 477.5Q3180 451 3204.0 404.5Q3228 358 3228 296V0H3102V286Q3102 342 3074.5 370.0Q3047 398 2996 398Q2938 398 2906.0 359.5Q2874 321 2874 252V0Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Primary Headline -->
+  <text class="font-sans" x="600" y="262" font-size="17" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="3.2">
+    THE AI OPERATING SYSTEM FOR MODERN BUSINESSES
+  </text>
+
+  <!-- Secondary Strategic Subtitle -->
+  <text class="font-sans" x="600" y="296" font-size="13.5" font-weight="400" fill="#A1A1AA" text-anchor="middle" letter-spacing="0.8">
+    Autonomous Agentic Workflows • Real-Time Systems Orchestration • Deep-Tech Reliability
+  </text>
+
+  <!-- Divider Line -->
+  <line x1="380" y1="334" x2="820" y2="334" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Bottom Technical Badges / Telemetry Chips -->
+  <g class="font-mono" transform="translate(600, 376)">
+    <!-- Badge 1: Next.js 15 -->
+    <g transform="translate(-290, 0)">
+      <rect x="-65" y="-14" width="130" height="28" rx="6" fill="#0C0C10" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="0" y="4" font-size="10.5" fill="#D4D4D8" text-anchor="middle" letter-spacing="1">NEXT.JS 15</text>
+    </g>
+
+    <!-- Badge 2: TypeScript 5.8 -->
+    <g transform="translate(-145, 0)">
+      <rect x="-65" y="-14" width="130" height="28" rx="6" fill="#0C0C10" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="0" y="4" font-size="10.5" fill="#D4D4D8" text-anchor="middle" letter-spacing="1">TYPESCRIPT 5.8</text>
+    </g>
+
+    <!-- Badge 3: Autonomous OS -->
+    <g transform="translate(0, 0)">
+      <rect x="-65" y="-14" width="130" height="28" rx="6" fill="#0C0C10" stroke="rgba(91,79,255,0.35)" stroke-width="1"/>
+      <text x="0" y="4" font-size="10.5" fill="#5B4FFF" font-weight="600" text-anchor="middle" letter-spacing="1">AUTONOMOUS OS</text>
+    </g>
+
+    <!-- Badge 4: Zero-Latency Edge -->
+    <g transform="translate(145, 0)">
+      <rect x="-65" y="-14" width="130" height="28" rx="6" fill="#0C0C10" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="0" y="4" font-size="10.5" fill="#D4D4D8" text-anchor="middle" letter-spacing="1">TAILWIND CSS</text>
+    </g>
+
+    <!-- Badge 5: Production Domain -->
+    <g transform="translate(290, 0)">
+      <rect x="-65" y="-14" width="130" height="28" rx="6" fill="#0C0C10" stroke="rgba(0,224,214,0.3)" stroke-width="1"/>
+      <circle cx="-42" cy="0" r="3" fill="#00E0D6"/>
+      <text x="6" y="4" font-size="10.5" fill="#00E0D6" text-anchor="middle" letter-spacing="1">ORBION.IN</text>
+    </g>
+  </g>
+
+  <!-- Bottom Coordinate Readout -->
+  <g class="font-mono" opacity="0.45">
+    <text x="44" y="424" font-size="9.5" fill="#71717A" letter-spacing="1.2">COORDINATES: 28.6139° N, 77.2090° E // ZERO-DRIFT INFRASTRUCTURE</text>
+    <text x="1156" y="424" font-size="9.5" fill="#71717A" text-anchor="end" letter-spacing="1.2">SECURE PRODUCTION RELEASE</text>
+  </g>
+</svg>

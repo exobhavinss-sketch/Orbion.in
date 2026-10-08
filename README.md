@@ -1,7 +1,38 @@
-# Orbion — AI Operating System for Modern Businesses
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/brand/png/orbion-banner.png">
+    <source media="(prefers-color-scheme: light)" srcset="public/brand/png/orbion-banner.png">
+    <img src="public/brand/png/orbion-banner.png" alt="Orbion — AI Operating System for Modern Businesses" width="100%">
+  </picture>
+</p>
 
-> Official Initial Website Architecture & Web Platform
-> Target Domain: [https://orbion.in](https://orbion.in)
+<p align="center">
+  <a href="https://orbion.in">
+    <img src="public/brand/png/orbion-logo-transparent.png" alt="Orbion Logo" height="44">
+  </a>
+</p>
+
+<h3 align="center">The AI Operating System for Modern Businesses</h3>
+
+<p align="center">
+  <em>Autonomous Agentic Workflows • Real-Time Systems Orchestration • Deep-Tech Reliability</em>
+</p>
+
+<p align="center">
+  <a href="https://orbion.in"><img src="https://img.shields.io/badge/Production-orbion.in-5B4FFF?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Site"></a>
+  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Framework-Next.js%2015-050508?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 15"></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/Language-TypeScript%205.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5.8"></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Styling-Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"></a>
+  <a href="ARCHITECTURE.md"><img src="https://img.shields.io/badge/Architecture-Instrument--Grade-111111?style=for-the-badge" alt="Architecture"></a>
+</p>
+
+<p align="center">
+  <a href="https://orbion.in">🌐 <b>Live Platform</b></a> &nbsp;•&nbsp;
+  <a href="#1-project-philosophy--design-direction">📐 <b>Design System</b></a> &nbsp;•&nbsp;
+  <a href="ARCHITECTURE.md">🏛️ <b>Architecture</b></a> &nbsp;•&nbsp;
+  <a href="#6-brand-identity--assets">🎨 <b>Brand Assets</b></a> &nbsp;•&nbsp;
+  <a href="#4-local-development--scripts">⚡ <b>Quickstart</b></a>
+</p>
 
 ---
 
@@ -34,6 +65,8 @@ Orbion is an early-stage deep-tech startup building an **AI Operating System** d
 │   ├── .nojekyll            # Prevents GitHub Pages from ignoring _next assets
 │   ├── CNAME                # Custom domain pointer (orbion.in)
 │   ├── brand/
+│   │   ├── orbion-banner.png# Official 2400x920 High-DPI architectural repository banner
+│   │   ├── orbion-banner.svg# Official vector banner with telemetry & orbital geometry
 │   │   ├── svg/             # Official Orbion vector logos, marks, and app icons
 │   │   ├── png/             # Multi-contrast PNG renders (dark, white, transparent)
 │   │   └── favicons/        # Multi-resolution favicons (16px to 512px)
@@ -140,3 +173,28 @@ The website is engineered for multi-cloud deployment agility. The primary produc
    - **Start Command**: `npm run start`
    - **Environment Variables**: `NODE_ENV=production`, `PORT=10000`
 3. Add Custom Domain in Render dashboard.
+
+---
+
+## 6. Brand Identity & Visual Assets
+
+All official vectors, logos, and high-resolution assets are organized under [`public/brand/`](public/brand/):
+
+| Asset | Format | File Path | Usage & Description |
+| :--- | :--- | :--- | :--- |
+| **Repository Banner** | PNG (2400×920) | [`public/brand/png/orbion-banner.png`](public/brand/png/orbion-banner.png) | High-DPI banner with telemetry & orbital geometry |
+| **Vector Banner** | SVG | [`public/brand/svg/orbion-banner.svg`](public/brand/svg/orbion-banner.svg) | Scalable architectural vector banner |
+| **Horizontal Logo** | SVG | [`public/brand/svg/orbion-logo-horizontal.svg`](public/brand/svg/orbion-logo-horizontal.svg) | Signature Electric Indigo mark & typography |
+| **Stacked Logo** | SVG | [`public/brand/svg/orbion-logo-stacked.svg`](public/brand/svg/orbion-logo-stacked.svg) | Centered vertical lockup for square profiles |
+| **Orbital Symbol** | SVG | [`public/brand/svg/orbion-symbol.svg`](public/brand/svg/orbion-symbol.svg) | Sovereign icon (`#5B4FFF` ring with `#00E0D6` node) |
+| **Dark Lockup** | PNG | [`public/brand/png/orbion-logo-dark.png`](public/brand/png/orbion-logo-dark.png) | High-contrast white typography on pitch black |
+| **Mono White** | PNG | [`public/brand/png/orbion-logo-mono-white.png`](public/brand/png/orbion-logo-mono-white.png) | Monochrome white glyphs for dark overlays |
+| **Transparent Logo** | PNG | [`public/brand/png/orbion-logo-transparent.png`](public/brand/png/orbion-logo-transparent.png) | 3600×887 transparent PNG render |
+| **App Icons & Favicons**| PNG / SVG | [`public/brand/favicons/`](public/brand/favicons/) | Multi-scale favicons from 16px to 512px |
+
+### Sovereign Brand Palette
+* **Electric Indigo** (`#5B4FFF`): Primary focal point & active state trigger (< 7% surface area).
+* **Pitch Void** (`#000000` / `#050505`): High-contrast architectural base canvas.
+* **Cyan Telemetry** (`#00E0D6`): Real-time status indicators and satellite telemetry dot.
+* **Monochrome Scale**: `#FFFFFF` (Pure Headlines), `#EDEDED` (Primary Text), `#A1A1AA` (Secondary), `#1C1C1E` (Hairline Border).
+
