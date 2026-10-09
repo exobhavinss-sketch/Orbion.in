@@ -7,3 +7,4 @@ export * from './section';
 export * from './card';
 export * from './divider';
 export * from './icon-wrapper';
+export * from './logo';

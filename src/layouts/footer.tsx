@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { BRAND_ASSETS } from '@/assets/brand';
 import { COMPANY } from '@/data/company';
 import { FOUNDER } from '@/data/founder';
-import { Container, Divider } from '@/components/ui';
+import { Container, Divider, Logo } from '@/components/ui';
 
 export function Footer() {
   const footerColumns = [
@@ -72,13 +72,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-border-hairline">
           {/* Company Thesis & Brand */}
           <div className="lg:col-span-4 flex flex-col items-start space-y-4">
-            <Image
-              src={BRAND_ASSETS.logoHorizontal}
-              alt="Orbion Technologies"
-              width={140}
-              height={36}
-              className="h-7 w-auto object-contain"
-            />
+            <Logo size="md" />
             <p className="font-sans text-sm text-text-secondary max-w-sm leading-relaxed pt-2">
               {COMPANY.visionSummary}
             </p>

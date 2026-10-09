@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight, User as UserIcon } from 'lucide-react';
 import { BRAND_ASSETS } from '@/assets/brand';
 import { PRIMARY_NAV } from '@/data/navigation';
-import { Button, Badge } from '@/components/ui';
+import { Button, Badge, Logo } from '@/components/ui';
 import { useSession } from '@/lib/auth-client';
 
 export function Navbar() {
@@ -93,14 +93,7 @@ export function Navbar() {
             aria-label="Orbion Technologies Home"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <Image
-              src={BRAND_ASSETS.logoHorizontal}
-              alt="Orbion Technologies"
-              width={130}
-              height={32}
-              priority
-              className="h-6 sm:h-7 w-auto object-contain"
-            />
+            <Logo priority size="sm" />
           </Link>
 
           {/* Desktop Navigation Links */}

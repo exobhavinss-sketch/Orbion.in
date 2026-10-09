@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { signIn } from '@/lib/auth-client';
 import { BRAND_ASSETS } from '@/assets/brand';
-import { Button, Badge } from '@/components/ui';
+import { Button, Badge, Logo } from '@/components/ui';
 import { ArrowRight, Loader2, ShieldAlert } from 'lucide-react';
 
 function LoginForm() {
@@ -58,14 +58,7 @@ function LoginForm() {
         {/* Brand Header */}
         <div className="flex flex-col items-center text-center mb-8">
           <Link href="/" className="mb-6 inline-block hover:opacity-85 transition-opacity" aria-label="Orbion Technologies Home">
-            <Image
-              src={BRAND_ASSETS.logoHorizontal}
-              alt="Orbion Technologies"
-              width={140}
-              height={34}
-              priority
-              className="h-7 w-auto object-contain"
-            />
+            <Logo priority size="md" />
           </Link>
 
           <Badge variant="status" indicatorColor="cyan" className="mb-3">
