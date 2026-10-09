@@ -19,9 +19,9 @@ import { FOUNDER } from '@/data/founder';
 import { COMPANY } from '@/data/company';
 
 export const metadata: Metadata = {
-  title: 'Bhavin Shankur — Co-Founder & CEO',
+  title: 'Bhavin Shankur — Founder & CEO',
   description:
-    'Profile and technical dossier of Bhavin Shankur, Co-Founder & CEO of Orbion. Engineering the AI Operating System for modern businesses.',
+    'Profile and technical dossier of Bhavin Shankur, Founder & CEO of Orbion Technologies. Engineering the AI Operating System for modern businesses.',
 };
 
 export default function FounderPage() {
@@ -98,12 +98,12 @@ export default function FounderPage() {
             </h1>
 
             <p className="font-mono text-sm sm:text-base text-brand-cyan tracking-wide mb-6">
-              Co-Founder &amp; CEO — {COMPANY.name}
+              Founder &amp; CEO — {COMPANY.name}
             </p>
 
             <p className="font-sans text-lg sm:text-xl text-text-secondary leading-relaxed font-light">
               Engineering student and systems builder specializing in Artificial Intelligence and Machine Learning.
-              Directing the architectural vision and technical foundation of Orbion’s AI Operating System.
+              Directing the architectural vision and technical foundation of Orbion Technologies’ AI Operating System.
             </p>
 
             {/* Quick Actions */}
@@ -156,7 +156,7 @@ export default function FounderPage() {
                 </p>
                 <p>
                   His technical approach prioritizes rigorous systems engineering, deterministic verification, and
-                  open interoperability over superficial generative demos. Orbion is the tangible expression of this
+                  open interoperability over superficial generative demos. Orbion Technologies is the tangible expression of this
                   focus — building the foundational operating layer that empowers enterprises to operate with autonomous,
                   protocol-guided AI agents.
                 </p>
@@ -313,7 +313,7 @@ export default function FounderPage() {
                   01 // EARLY-STAGE INITIATIVE
                 </span>
                 <p className="font-sans text-sm text-text-secondary leading-relaxed">
-                  &ldquo;Instead of waiting until graduation to begin building, I decided to start now. Orbion is my
+                  &ldquo;Instead of waiting until graduation to begin building, I decided to start now. Orbion Technologies is my
                   attempt to build toward that future — learning through engineering real products and continuously
                   testing what is possible in business environments.&rdquo;
                 </p>

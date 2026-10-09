@@ -22,7 +22,7 @@ export function HeroSection() {
             {/* System Status Pill */}
             <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-xs bg-surface-card border border-border-hairline font-mono text-xs uppercase tracking-wider text-text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
-              <span>ORBION OPERATING SYSTEM • EARLY ARCHITECTURE</span>
+              <span>ORBION TECHNOLOGIES OS • EARLY ARCHITECTURE</span>
             </div>
 
             {/* Colossal Minimalist Headline */}
@@ -33,7 +33,7 @@ export function HeroSection() {
 
             {/* Honest Supporting Copy */}
             <p className="font-sans text-base sm:text-lg text-text-secondary max-w-xl leading-relaxed">
-              Orbion is building the foundational software layer that allows modern businesses to work alongside autonomous AI systems capable of understanding objectives, using tools, and executing workflows across teams.
+              Orbion Technologies is building the foundational software layer that allows modern businesses to work alongside autonomous AI systems capable of understanding objectives, using tools, and executing workflows across teams.
             </p>
 
             {/* Action CTAs */}
@@ -47,7 +47,7 @@ export function HeroSection() {
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Explore Orbion
+                Explore Platform
               </Button>
 
               <Button
@@ -119,7 +119,7 @@ export function HeroSection() {
                 </div>
 
                 <span className="font-sans text-sm font-semibold tracking-tight text-white uppercase">
-                  Orbion Operating Layer
+                  Orbion Technologies Operating Layer
                 </span>
                 <span className="font-mono text-[11px] text-text-secondary">
                   DAG Engine • Tool Dispatch • Context Memory

@@ -28,7 +28,7 @@ export function CtaSection() {
         </h2>
 
         <p className="font-sans text-base sm:text-lg text-text-secondary max-w-xl leading-relaxed">
-          Orbion is in active early architecture. If you are an enterprise leader, engineer, or operator interested in autonomous agentic systems, request early access to follow our development.
+          Orbion Technologies is in active early architecture. If you are an enterprise leader, engineer, or operator interested in autonomous agentic systems, request early access to follow our development.
         </p>
 
         {/* Access Request Form */}

@@ -18,8 +18,8 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Dashboard — Orbion AI Operating System',
-  description: 'Enterprise console and session management for Orbion Operating System.',
+  title: 'Dashboard — Orbion Technologies OS',
+  description: 'Enterprise console and session management for Orbion Technologies Operating System.',
   robots: {
     index: false,
     follow: false,
@@ -180,7 +180,7 @@ export default async function DashboardPage() {
                   $ orbion-os --version
                 </p>
                 <p className="text-text-muted">
-                  &gt; Orbion Architecture v1.0.0 (Production Node Next.js 15.2.1 / React 19)
+                  &gt; Orbion Technologies Architecture v1.0.0 (Production Node Next.js 15.2.1 / React 19)
                 </p>
                 <p className="text-text-muted">
                   &gt; Database Storage: Local SQLite engine at prisma/dev.db (Strict zero-cloud data sovereignty)

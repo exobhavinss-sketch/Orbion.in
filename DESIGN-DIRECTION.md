@@ -1,8 +1,8 @@
-# Orbion Design Direction & Visual System Specification
+# Orbion Technologies Design Direction & Visual System Specification
 
 > **Aesthetic Archetype**: Architectural Minimalism • Instrument-Grade Technical Discipline • High-Contrast Restraint  
 > **Reference Peers**: Apple, Tesla, Stripe, Linear, Vercel, Palantir, Anthropic  
-> **Brand**: Orbion (`https://orbion.in`)  
+> **Brand**: Orbion Technologies (`https://orbion.in`)  
 
 ---
 

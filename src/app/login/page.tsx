@@ -57,10 +57,10 @@ function LoginForm() {
 
         {/* Brand Header */}
         <div className="flex flex-col items-center text-center mb-8">
-          <Link href="/" className="mb-6 inline-block hover:opacity-85 transition-opacity" aria-label="Orbion Home">
+          <Link href="/" className="mb-6 inline-block hover:opacity-85 transition-opacity" aria-label="Orbion Technologies Home">
             <Image
               src={BRAND_ASSETS.logoHorizontal}
-              alt="Orbion"
+              alt="Orbion Technologies"
               width={140}
               height={34}
               priority
@@ -73,7 +73,7 @@ function LoginForm() {
           </Badge>
 
           <h1 className="text-2xl font-semibold text-text-pure tracking-tight">
-            Sign In to Orbion
+            Sign In to Orbion Technologies
           </h1>
           <p className="text-xs text-text-secondary mt-1.5 font-sans">
             Enter your credentials to access the AI Operating System.

@@ -95,7 +95,7 @@ export default function ContactPage() {
                   <div>
                     <h2 className="font-sans text-xl font-semibold text-white">Transmit an Inquiry</h2>
                     <p className="font-sans text-xs text-text-secondary mt-1">
-                      Direct transmission to the Orbion founding organization.
+                      Direct transmission to the Orbion Technologies founding organization.
                     </p>
                   </div>
                   <Badge variant="outline" className="text-[10px]">
@@ -110,7 +110,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="font-sans text-xl font-semibold text-white">Inquiry Received</h3>
                     <p className="font-sans text-sm text-text-secondary max-w-md leading-relaxed">
-                      Thank you for contacting Orbion. Your transmission has been dispatched to Bhavin Shankur.
+                      Thank you for contacting Orbion Technologies. Your transmission has been dispatched to Bhavin Shankur.
                       We will review your inquiry and follow up at <span className="text-white font-mono">{formData.email}</span> within 24–48 business hours.
                     </p>
                     <div className="pt-4">
@@ -265,7 +265,7 @@ export default function ContactPage() {
 
                 <div className="space-y-6">
                   <div>
-                    <span className="font-mono text-[11px] text-text-muted block mb-1">CO-FOUNDER &amp; CEO</span>
+                    <span className="font-mono text-[11px] text-text-muted block mb-1">FOUNDER &amp; CEO</span>
                     <h3 className="font-sans text-base font-semibold text-white">Bhavin Shankur</h3>
                     <p className="font-sans text-xs text-text-secondary mt-0.5">
                       B.Tech CSE — Artificial Intelligence &amp; Machine Learning

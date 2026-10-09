@@ -2,13 +2,13 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="public/brand/png/orbion-banner.png">
     <source media="(prefers-color-scheme: light)" srcset="public/brand/png/orbion-banner.png">
-    <img src="public/brand/png/orbion-banner.png" alt="Orbion — AI Operating System for Modern Businesses" width="100%">
+    <img src="public/brand/png/orbion-banner.png" alt="Orbion Technologies — AI Operating System for Modern Businesses" width="100%">
   </picture>
 </p>
 
 <p align="center">
   <a href="https://orbion.in">
-    <img src="public/brand/png/orbion-logo-transparent.png" alt="Orbion Logo" height="44">
+    <img src="public/brand/png/orbion-logo-transparent.png" alt="Orbion Technologies Logo" height="44">
   </a>
 </p>
 
@@ -39,7 +39,7 @@
 ---
 
 ## 1. Project Philosophy & Design Direction
-Orbion is an early-stage deep-tech startup building an **AI Operating System** designed to help businesses automate and operate their everyday workflows through autonomous, intelligent agentic systems.
+Orbion Technologies is an early-stage deep-tech startup building an **AI Operating System** designed to help businesses automate and operate their everyday workflows through autonomous, intelligent agentic systems.
 
 ### Core Design Rules
 * **No Generic AI Tropes**: Avoided robot illustrations, AI brain graphics, neon glows, particle fields, floating glass cards, and fake statistics.
@@ -62,10 +62,10 @@ Orbion is an early-stage deep-tech startup building an **AI Operating System** d
 
 ## 3. Authentication Architecture
 
-The Orbion platform includes a local-first authentication system powered by **Better Auth** and **Prisma ORM 7**:
+The Orbion Technologies platform includes a local-first authentication system powered by **Better Auth** and **Prisma ORM 7**:
 
 ```
-Orbion Next.js (App Router)
+Orbion Technologies Next.js (App Router)
        ↓
 Better Auth API Route (/api/auth/[...all])
        ↓
@@ -98,8 +98,8 @@ prisma/dev.db (Local Development Database)
 ### Quickstart Setup
 ```bash
 # 1. Clone repository
-git clone https://github.com/exobhavinss-sketch/Orbion.in.git
-cd Orbion.in
+git clone https://github.com/orbiontechnologiesin/OrbionTechnologies-Official-Website.git
+cd OrbionTechnologies-Official-Website
 
 # 2. Install dependencies (automatically runs prisma generate)
 npm install
@@ -140,10 +140,10 @@ npm run start
 
 ## 5. Deployment Guide
 
-Orbion is built with **one unified codebase** ready to deploy across major cloud server platforms.
+Orbion Technologies is built with **one unified codebase** ready to deploy across major cloud server platforms.
 
 ### A. Vercel (Recommended)
-1. Import repository `exobhavinss-sketch/Orbion.in` in Vercel.
+1. Import repository `orbiontechnologiesin/OrbionTechnologies-Official-Website` in Vercel.
 2. Vercel automatically detects Next.js 15:
    - **Framework Preset**: Next.js
    - **Build Command**: `npm run build`
@@ -163,7 +163,7 @@ Orbion is built with **one unified codebase** ready to deploy across major cloud
 3. Configure `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, and `DATABASE_URL` in Site Configuration > Environment Variables.
 
 ### C. Render
-1. Create a new **Web Service** on Render connected to `Orbion.in`.
+1. Create a new **Web Service** on Render connected to `OrbionTechnologies-Official-Website`.
 2. Configure runtime parameters:
    - **Environment**: `Node`
    - **Build Command**: `npm install && npm run build`

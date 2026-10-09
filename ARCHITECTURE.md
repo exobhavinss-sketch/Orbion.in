@@ -1,6 +1,6 @@
-# Orbion System Architecture & Technical Specification
+# Orbion Technologies System Architecture & Technical Specification
 
-> **Platform**: Orbion Web Operating System & Landing Presence  
+> **Platform**: Orbion Technologies Web Operating System & Landing Presence  
 > **Target Domain**: [https://orbion.in](https://orbion.in)  
 > **Status**: Phase 1 Architectural Foundation Complete  
 

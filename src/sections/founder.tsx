@@ -17,7 +17,7 @@ export function FounderSection() {
         </H2>
 
         <Body className="text-text-secondary text-base sm:text-lg max-w-2xl leading-relaxed">
-          Orbion was founded with the conviction that intelligent, autonomous software should be practical, accessible, and designed for real-world enterprise utility.
+          Orbion Technologies was founded with the conviction that intelligent, autonomous software should be practical, accessible, and designed for real-world enterprise utility.
         </Body>
       </div>
 
@@ -29,7 +29,7 @@ export function FounderSection() {
             <div className="md:col-span-5 space-y-5">
               <div>
                 <span className="font-mono text-xs uppercase tracking-wider text-brand-accent block mb-1">
-                  CO-FOUNDER & CEO
+                  FOUNDER & CEO
                 </span>
                 <h3 className="font-sans text-2xl sm:text-3xl font-semibold text-white tracking-tight">
                   {FOUNDER.name}
@@ -81,7 +81,7 @@ export function FounderSection() {
                   &ldquo;I believe the next generation of businesses will not rely only on traditional software. They will work alongside intelligent AI systems capable of understanding tasks, making decisions, using tools, and executing workflows.&rdquo;
                 </p>
                 <p>
-                  &ldquo;Instead of waiting until graduation to begin building, I decided to start now. Orbion is my attempt to build toward that future — learning through engineering real products and continuously testing what is possible.&rdquo;
+                  &ldquo;Instead of waiting until graduation to begin building, I decided to start now. Orbion Technologies is my attempt to build toward that future — learning through engineering real products and continuously testing what is possible.&rdquo;
                 </p>
               </div>
 

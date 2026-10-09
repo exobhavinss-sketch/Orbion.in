@@ -19,9 +19,9 @@ import {
 import { Container, Section, Card, Badge, Button, Divider } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Technology & Architecture — The Orbion Operating Substrate',
+  title: 'Technology & Architecture — The Orbion Technologies Operating Substrate',
   description:
-    'Deep-dive into the technical pillars of Orbion: AI Agents, Model Context Protocol (MCP), LLMs, Hierarchical Memory, Tool Calling, and Deterministic Workflow Orchestration.',
+    'Deep-dive into the technical pillars of Orbion Technologies: AI Agents, Model Context Protocol (MCP), LLMs, Hierarchical Memory, Tool Calling, and Deterministic Workflow Orchestration.',
 };
 
 export default function TechnologyPage() {
@@ -177,7 +177,7 @@ export default function TechnologyPage() {
             </h1>
 
             <p className="font-sans text-lg sm:text-xl text-text-secondary leading-relaxed font-light">
-              Orbion is engineered to bridge cognitive foundation models with deterministic enterprise execution.
+              Orbion Technologies is engineered to bridge cognitive foundation models with deterministic enterprise execution.
               Explore our core technical pillars, runtime protocols, and the distinction between our active prototypes
               and long-term research direction.
             </p>

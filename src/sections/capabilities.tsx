@@ -79,12 +79,12 @@ export function CapabilitiesSection() {
         </H2>
 
         <Body className="text-text-secondary text-base sm:text-lg max-w-2xl leading-relaxed">
-          As Orbion develops, the operating system is being architected to support specialized autonomous AI systems tailored for distinct operational domains.
+          As Orbion Technologies develops, the operating system is being architected to support specialized autonomous AI systems tailored for distinct operational domains.
         </Body>
 
         {/* Honest Early Stage Disclaimer */}
         <div className="p-3 rounded-xs bg-surface-card border border-border-hairline max-w-xl font-mono text-xs text-text-muted">
-          <span className="text-brand-accent font-medium">NOTE:</span> The modules below represent Orbion’s planned product direction and engineering roadmap. We do not claim all domains are currently deployed.
+          <span className="text-brand-accent font-medium">NOTE:</span> The modules below represent Orbion Technologies’ planned product direction and engineering roadmap. We do not claim all domains are currently deployed.
         </div>
       </div>
 

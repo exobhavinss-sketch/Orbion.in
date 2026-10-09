@@ -6,7 +6,7 @@ export function VisionSection() {
     <Section background="canvas" hasBorderBottom={true} className="py-24 sm:py-32 lg:py-40">
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center space-y-8">
         <Badge variant="default">
-          02 // THE ORBION THESIS
+          02 // THE ORBION TECHNOLOGIES THESIS
         </Badge>
 
         <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tighter text-white uppercase leading-[1.08] max-w-4xl">

@@ -66,10 +66,10 @@ export default function RegisterPage() {
 
           {/* Brand Header */}
           <div className="flex flex-col items-center text-center mb-8">
-            <Link href="/" className="mb-6 inline-block hover:opacity-85 transition-opacity" aria-label="Orbion Home">
+            <Link href="/" className="mb-6 inline-block hover:opacity-85 transition-opacity" aria-label="Orbion Technologies Home">
               <Image
                 src={BRAND_ASSETS.logoHorizontal}
-                alt="Orbion"
+                alt="Orbion Technologies"
                 width={140}
                 height={34}
                 priority
@@ -82,7 +82,7 @@ export default function RegisterPage() {
             </Badge>
 
             <h1 className="text-2xl font-semibold text-text-pure tracking-tight">
-              Create Orbion Account
+              Create Orbion Technologies Account
             </h1>
             <p className="text-xs text-text-secondary mt-1.5 font-sans">
               Deploy your credentials for the autonomous business operating system.

@@ -59,7 +59,7 @@ export function ProblemSection() {
         <Card variant="elevated" className="p-6 sm:p-8 space-y-6 border-brand-accent/30 bg-[#070b14]">
           <CardHeader className="pb-4 border-b border-brand-accent/20 flex items-center justify-between">
             <span className="font-mono text-xs uppercase tracking-wider text-brand-accent">
-              Orbion Direction
+              Orbion Technologies Direction
             </span>
             <Workflow className="w-4 h-4 text-brand-accent" />
           </CardHeader>
@@ -69,7 +69,7 @@ export function ProblemSection() {
               The Intelligent Operating Layer
             </h3>
             <p className="font-sans text-sm text-text-primary leading-relaxed">
-              Orbion’s long-term vision is an active operating substrate that sits beneath existing tools. It comprehends business intent, formulates execution plans, calls tools deterministically, and executes multi-step workflows.
+              Orbion Technologies’ long-term vision is an active operating substrate that sits beneath existing tools. It comprehends business intent, formulates execution plans, calls tools deterministically, and executes multi-step workflows.
             </p>
             <ul className="space-y-2.5 pt-2 text-xs font-mono text-text-secondary">
               <li className="flex items-center gap-2">

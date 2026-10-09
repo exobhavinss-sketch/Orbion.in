@@ -48,7 +48,7 @@ export function Footer() {
     {
       title: 'Company',
       links: [
-        { label: 'About Orbion', href: '/company' },
+        { label: 'About Orbion Technologies', href: '/company' },
         { label: 'Thesis & Origin', href: '/company#thesis' },
         { label: 'Current Stage', href: '/company#stage' },
         { label: 'Contact Us', href: '/contact' },
@@ -74,7 +74,7 @@ export function Footer() {
           <div className="lg:col-span-4 flex flex-col items-start space-y-4">
             <Image
               src={BRAND_ASSETS.logoHorizontal}
-              alt="Orbion"
+              alt="Orbion Technologies"
               width={140}
               height={36}
               className="h-7 w-auto object-contain"
@@ -85,7 +85,7 @@ export function Footer() {
 
             <div className="pt-2 flex items-center gap-2 font-mono text-[11px] text-text-muted uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
-              <span>ORBION OPERATING SYSTEM • V1.0 PREVIEW</span>
+              <span>ORBION TECHNOLOGIES OS • V1.0 PREVIEW</span>
             </div>
           </div>
 
@@ -153,7 +153,7 @@ export function Footer() {
         {/* Bottom Legal & Colophon Strip */}
         <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-text-muted">
           <div>
-            <span>© 2026 {COMPANY.legalName}. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.</span>
             <span className="mx-2">•</span>
             <span>Solapur, India</span>
           </div>

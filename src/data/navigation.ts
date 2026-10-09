@@ -30,7 +30,7 @@ export const FOOTER_SECTIONS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Orbion', href: '/company' },
+      { label: 'About Orbion Technologies', href: '/company' },
       { label: 'Thesis & Origin', href: '/company#thesis' },
       { label: 'Current Stage', href: '/company#stage' },
       { label: 'Leadership', href: '/founder' },

@@ -47,11 +47,11 @@ export function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-3 transition-opacity duration-150 hover:opacity-85 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent rounded-xs"
-          aria-label="Orbion Home"
+          aria-label="Orbion Technologies Home"
         >
           <Image
             src={BRAND_ASSETS.logoHorizontal}
-            alt="Orbion"
+            alt="Orbion Technologies"
             width={130}
             height={32}
             priority
@@ -155,7 +155,7 @@ export function Navbar() {
 
           <div className="pt-6 border-t border-border-hairline flex flex-col gap-3">
             <div className="flex items-center justify-between text-xs font-mono text-text-muted px-1">
-              <span>ORBION OPERATING SYSTEM</span>
+              <span>ORBION TECHNOLOGIES OS</span>
               <span className="text-brand-accent">ONLINE</span>
             </div>
 

@@ -36,6 +36,7 @@ export interface FounderInfo {
 
 export interface CompanyMeta {
   name: string;
+  shortName?: string;
   legalName: string;
   tagline: string;
   domain: string;

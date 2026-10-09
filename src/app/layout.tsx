@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   },
   description: COMPANY.visionSummary,
   keywords: [
+    'Orbion Technologies',
     'Orbion',
     'AI Operating System',
     'Enterprise AI',
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
         url: '/brand/png/orbion-logo-white.png',
         width: 1200,
         height: 630,
-        alt: 'Orbion — AI Operating System for Modern Businesses',
+        alt: `${COMPANY.name} — AI Operating System for Modern Businesses`,
       },
     ],
   },
@@ -97,7 +98,7 @@ const jsonLd = {
     {
       '@type': 'Organization',
       '@id': 'https://orbion.in/#organization',
-      name: 'Orbion',
+      name: 'Orbion Technologies',
       legalName: 'Orbion Technologies',
       url: 'https://orbion.in',
       logo: {
@@ -107,7 +108,7 @@ const jsonLd = {
       founder: {
         '@type': 'Person',
         name: 'Bhavin Shankur',
-        jobTitle: 'Co-Founder & CEO',
+        jobTitle: 'Founder & CEO',
         sameAs: [
           'https://www.linkedin.com/in/bhavin-shankur-8421a0371',
           'https://github.com/exobhavinss-sketch',
@@ -116,13 +117,13 @@ const jsonLd = {
         ],
       },
       description:
-        'Orbion is building an AI Operating System for modern businesses, enabling organizations to operate with intelligent, autonomous AI systems capable of executing workflows across business functions.',
+        'Orbion Technologies is building an AI Operating System for modern businesses, enabling organizations to operate with intelligent, autonomous AI systems capable of executing workflows across business functions.',
     },
     {
       '@type': 'WebSite',
       '@id': 'https://orbion.in/#website',
       url: 'https://orbion.in',
-      name: 'Orbion',
+      name: 'Orbion Technologies',
       publisher: {
         '@id': 'https://orbion.in/#organization',
       },

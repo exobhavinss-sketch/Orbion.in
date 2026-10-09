@@ -2,7 +2,7 @@ import { FounderInfo } from '@/types';
 
 export const FOUNDER: FounderInfo = {
   name: 'Bhavin Shankur',
-  role: 'Co-Founder & CEO, Orbion',
+  role: 'Founder & CEO, Orbion Technologies',
   degree: 'B.Tech CSE',
   field: 'Artificial Intelligence & Machine Learning',
   institution: 'MIT Vishwaprayag University, Solapur',
@@ -11,7 +11,7 @@ export const FOUNDER: FounderInfo = {
   bio: [
     'Bhavin Shankur is a technologist and engineering student specializing in Artificial Intelligence and Machine Learning at MIT Vishwaprayag University, Solapur.',
     'Passionate about AI agents, systems engineering, automation, and real-world utility, he chose to start building the foundational layer of autonomous enterprise operations today rather than waiting.',
-    'Orbion is the beginning of that journey — bridging state-of-the-art machine intelligence with practical, reliable business infrastructure.',
+    'Orbion Technologies is the beginning of that journey — bridging state-of-the-art machine intelligence with practical, reliable business infrastructure.',
   ],
   links: [
     {

@@ -17,9 +17,9 @@ import { Container, Section, Card, Badge, Button, Divider } from '@/components/u
 import { COMPANY } from '@/data/company';
 
 export const metadata: Metadata = {
-  title: 'Company & Vision — About Orbion',
+  title: 'Company & Vision — About Orbion Technologies',
   description:
-    'Orbion is an early-stage technology startup engineering the AI Operating System for modern businesses. Learn about our origin, thesis, and long-term trajectory.',
+    'Orbion Technologies is an early-stage technology startup engineering the AI Operating System for modern businesses. Learn about our origin, thesis, and long-term trajectory.',
 };
 
 export default function CompanyPage() {
@@ -57,10 +57,10 @@ export default function CompanyPage() {
       status: 'CURRENT PHASE',
       active: true,
       points: [
-        'Formulation of the Orbion Operating System RFC.',
+        'Formulation of the Orbion Technologies Operating System RFC.',
         'Specification of the Model Context Protocol (MCP) client/server tooling layer.',
         'Core DAG execution kernel prototyping.',
-        'Establishment of the Orbion design system and engineering doctrine.',
+        'Establishment of the Orbion Technologies design system and engineering doctrine.',
       ],
     },
     {
@@ -106,22 +106,22 @@ export default function CompanyPage() {
             </h1>
 
             <p className="font-sans text-lg sm:text-xl text-text-secondary leading-relaxed font-light">
-              Orbion is an early-stage technology startup architecting an AI Operating System designed to help modern
+              Orbion Technologies is an early-stage technology startup architecting an AI Operating System designed to help modern
               enterprises coordinate intelligent, autonomous AI systems across business workflows.
             </p>
           </div>
         </Container>
       </Section>
 
-      {/* What Orbion Is & Why It Exists */}
+      {/* What Orbion Technologies Is & Why It Exists */}
       <Section padding="lg" className="border-b border-border-hairline" id="thesis">
         <Container size="lg">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Left: What Orbion Is */}
+            {/* Left: What Orbion Technologies Is */}
             <div className="lg:col-span-6 flex flex-col space-y-6">
               <div className="flex items-center gap-2 font-mono text-xs text-brand-cyan uppercase tracking-wider">
                 <Building2 className="w-3.5 h-3.5" />
-                <span>WHAT ORBION IS</span>
+                <span>WHAT ORBION TECHNOLOGIES IS</span>
               </div>
 
               <h2 className="font-sans text-2xl sm:text-3xl font-semibold text-white tracking-tight">
@@ -140,18 +140,18 @@ export default function CompanyPage() {
                   tabs, make routine decisions, and trigger downstream APIs.
                 </p>
                 <p>
-                  <strong>Orbion is building the system that changes this dynamic.</strong> Instead of treating AI as an
-                  isolated chat window, Orbion treats AI as an operating substrate — a persistent runtime capable of
+                  <strong>Orbion Technologies is building the system that changes this dynamic.</strong> Instead of treating AI as an
+                  isolated chat window, Orbion Technologies treats AI as an operating substrate — a persistent runtime capable of
                   maintaining state, calling tools, and coordinating multi-step execution.
                 </p>
               </div>
             </div>
 
-            {/* Right: Why Orbion Exists */}
+            {/* Right: Why Orbion Technologies Exists */}
             <div className="lg:col-span-6 flex flex-col space-y-6">
               <div className="flex items-center gap-2 font-mono text-xs text-brand-cyan uppercase tracking-wider">
                 <Target className="w-3.5 h-3.5" />
-                <span>WHY ORBION EXISTS</span>
+                <span>WHY ORBION TECHNOLOGIES EXISTS</span>
               </div>
 
               <h2 className="font-sans text-2xl sm:text-3xl font-semibold text-white tracking-tight">
@@ -171,7 +171,7 @@ export default function CompanyPage() {
                 <p>
                   What is missing is the operating system: the process scheduler, context manager, memory store, and
                   permission barrier that ensures autonomous systems operate reliably, predictably, and securely.
-                  That is what Orbion is engineered to solve.
+                  That is what Orbion Technologies is engineered to solve.
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function CompanyPage() {
                 Where We Stand Today
               </h2>
               <p className="font-sans text-base text-text-secondary leading-relaxed">
-                Orbion is an early-stage startup founded in 2026. We are in the architectural design and prototype
+                Orbion Technologies is an early-stage startup founded in 2026. We are in the architectural design and prototype
                 validation phase. We do not claim fabricated enterprise revenue or millions of users. We believe in
                 delivering honest engineering truth.
               </p>
@@ -338,7 +338,7 @@ export default function CompanyPage() {
           </h2>
           <p className="font-sans text-base text-text-secondary max-w-xl mx-auto mb-8 font-light">
             Review the specific technologies, runtime specifications, and research paradigms being explored at
-            Orbion.
+            Orbion Technologies.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

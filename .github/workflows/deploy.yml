@@ -1,4 +1,4 @@
-name: Orbion CI
+name: Orbion Technologies CI
 
 on:
   push:
