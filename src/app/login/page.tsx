@@ -34,7 +34,16 @@ function LoginForm() {
       });
 
       if (res.error) {
-        setError(res.error.message || 'Invalid email or password.');
+        console.error('Sign-in failed:', {
+          code: res.error.code,
+          status: res.error.status,
+          message: res.error.message,
+        });
+        if (res.error.status === 500) {
+          setError('Database connection error. Please try again shortly.');
+        } else {
+          setError(res.error.message || 'Invalid email or password.');
+        }
         setLoading(false);
         return;
       }
@@ -42,7 +51,8 @@ function LoginForm() {
       router.push(callbackUrl);
       router.refresh();
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'An unexpected error occurred during login.';
+      console.error('Unexpected login error:', err);
+      const message = err instanceof Error ? err.message : 'An unexpected network error occurred during login.';
       setError(message);
       setLoading(false);
     }

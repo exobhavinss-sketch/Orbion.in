@@ -19,6 +19,33 @@ export default function RegisterPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  const getFriendlyErrorMessage = (err: { message?: string; code?: string; status?: number }) => {
+    const code = err.code?.toUpperCase();
+    const msg = err.message?.toLowerCase() || '';
+
+    if (
+      code === 'USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL' ||
+      code === 'USER_ALREADY_EXISTS' ||
+      msg.includes('already exists')
+    ) {
+      return 'An account with this email address already exists. Please sign in or use another email.';
+    }
+
+    if (code === 'PASSWORD_TOO_SHORT' || (msg.includes('password') && msg.includes('short'))) {
+      return 'Password must contain at least 8 characters.';
+    }
+
+    if (code === 'INVALID_EMAIL' || msg.includes('invalid email')) {
+      return 'Please enter a valid email address.';
+    }
+
+    if (err.status === 500 || msg.includes('database') || msg.includes('internal server error')) {
+      return 'Database service temporarily unavailable. Please verify connection and try again.';
+    }
+
+    return err.message || 'Failed to create account. Please verify your details and try again.';
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -43,7 +70,12 @@ export default function RegisterPage() {
       });
 
       if (res.error) {
-        setError(res.error.message || 'Failed to create account. Please try again.');
+        console.error('Registration failed:', {
+          code: res.error.code,
+          status: res.error.status,
+          message: res.error.message,
+        });
+        setError(getFriendlyErrorMessage(res.error));
         setLoading(false);
         return;
       }
@@ -51,7 +83,8 @@ export default function RegisterPage() {
       router.push('/dashboard');
       router.refresh();
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'An unexpected error occurred during registration.';
+      console.error('Unexpected registration error:', err);
+      const message = err instanceof Error ? err.message : 'An unexpected network error occurred during registration.';
       setError(message);
       setLoading(false);
     }

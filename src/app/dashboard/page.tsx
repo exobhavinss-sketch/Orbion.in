@@ -73,12 +73,12 @@ export default async function DashboardPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
             <div className="flex items-center justify-between text-text-muted">
-              <span className="font-mono text-[11px] uppercase tracking-wider">Local Database</span>
+              <span className="font-mono text-[11px] uppercase tracking-wider">Cloud Database</span>
               <Database className="w-4 h-4 text-brand-cyan" />
             </div>
-            <div className="text-xl font-semibold text-text-pure font-mono">SQLite (Local)</div>
+            <div className="text-xl font-semibold text-text-pure font-mono">PostgreSQL</div>
             <div className="text-[11px] text-text-secondary">
-              File: <code className="text-text-muted font-mono">./prisma/dev.db</code>
+              Provider: <code className="text-text-muted font-mono">Supabase Hosted DB</code>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export default async function DashboardPage() {
               <ShieldCheck className="w-4 h-4 text-brand-accent" />
             </div>
             <div className="text-xl font-semibold text-text-pure font-mono">Better Auth v1.7</div>
-            <div className="text-[11px] text-text-secondary">Prisma 7 Adapter & SQLite Driver</div>
+            <div className="text-[11px] text-text-secondary">Prisma 7 Adapter &amp; PostgreSQL Driver</div>
           </div>
 
           <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
@@ -183,7 +183,7 @@ export default async function DashboardPage() {
                   &gt; Orbion Technologies Architecture v1.0.0 (Production Node Next.js 15.2.1 / React 19)
                 </p>
                 <p className="text-text-muted">
-                  &gt; Database Storage: Local SQLite engine at prisma/dev.db (Strict zero-cloud data sovereignty)
+                  &gt; Database Storage: Supabase PostgreSQL engine (Enterprise cloud data persistence)
                 </p>
                 <p className="text-emerald-400">
                   &gt; Session Status: Active session for {user.email}. Authentication validated server-side.
