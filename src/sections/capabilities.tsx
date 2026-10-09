@@ -67,7 +67,8 @@ const CAPABILITIES: CapabilityItem[] = [
 
 export function CapabilitiesSection() {
   return (
-    <Section id="solutions" background="void" hasBorderBottom={true}>
+    <Section id="solutions" background="void" hasBorderBottom={true} className="scroll-mt-16 sm:scroll-mt-18">
+      <div id="capabilities" className="relative -top-20 pointer-events-none" aria-hidden="true" />
       <div className="max-w-4xl mx-auto flex flex-col space-y-4 mb-16 text-left">
         <Badge variant="status" indicatorColor="brand" className="self-start">
           03 // FUTURE PRODUCT DIRECTION

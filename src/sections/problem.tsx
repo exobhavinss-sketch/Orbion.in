@@ -4,7 +4,8 @@ import { Section, Container, Card, CardHeader, CardContent, Badge, H2, Body, Cap
 
 export function ProblemSection() {
   return (
-    <Section id="problem" background="void" hasBorderBottom={true}>
+    <Section id="platform" background="void" hasBorderBottom={true} className="scroll-mt-16 sm:scroll-mt-18">
+      <div id="problem" className="relative -top-20 pointer-events-none" aria-hidden="true" />
       <div className="max-w-4xl mx-auto flex flex-col space-y-4 mb-16 text-left">
         <Badge variant="default" className="self-start">
           01 // THE SYSTEMIC PROBLEM
