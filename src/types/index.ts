@@ -43,3 +43,20 @@ export interface CompanyMeta {
   statusBadge: string;
   visionSummary: string;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  title: string;
+  department?: string;
+  degree: string;
+  field: string;
+  institution: string;
+  location: string;
+  description: string;
+  bio?: string[];
+  portfolioUrl?: string;
+  links: SocialLink[];
+  portfolios?: PortfolioLink[];
+}

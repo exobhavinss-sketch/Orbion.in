@@ -15,7 +15,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { Container, Section, Card, Badge, Button, Divider } from '@/components/ui';
-import { FOUNDER } from '@/data/founder';
+import { FOUNDER, CTO } from '@/data/team';
 import { COMPANY } from '@/data/company';
 
 export const metadata: Metadata = {
@@ -391,6 +391,107 @@ export default function FounderPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Executive Leadership: Chief Technology Officer */}
+      <Section padding="lg" className="border-b border-border-hairline" id="cto">
+        <Container size="lg">
+          <div className="flex flex-col space-y-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 font-mono text-xs text-brand-cyan uppercase tracking-wider mb-2">
+                <Terminal className="w-3.5 h-3.5" />
+                <span>EXECUTIVE LEADERSHIP // ENGINEERING</span>
+              </div>
+              <h2 className="font-sans text-3xl font-semibold text-white tracking-tight mb-3">
+                Chief Technology Officer
+              </h2>
+              <p className="font-sans text-base text-text-secondary leading-relaxed">
+                Technical leadership guiding application engineering, system integrations, and engineering practices across Orbion Technologies.
+              </p>
+            </div>
+
+            <Card variant="elevated" className="p-6 sm:p-10 border-border-hairline bg-surface-subtle">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div className="md:col-span-5 space-y-5">
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-brand-cyan block mb-1">
+                      CHIEF TECHNOLOGY OFFICER (CTO)
+                    </span>
+                    <h3 className="font-sans text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+                      {CTO.name}
+                    </h3>
+                  </div>
+
+                  <div className="p-4 rounded-xs bg-surface-card border border-border-hairline space-y-1.5">
+                    <div className="flex items-center gap-2 text-text-muted">
+                      <GraduationCap className="w-4 h-4 text-white" />
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-white font-medium">
+                        ACADEMIC FOUNDATION
+                      </span>
+                    </div>
+                    <p className="font-sans text-sm text-text-primary font-medium">
+                      {CTO.degree}
+                    </p>
+                    <p className="font-mono text-xs text-text-muted">
+                      {CTO.institution}, Solapur
+                    </p>
+                  </div>
+
+                  <div className="space-y-2 pt-2">
+                    <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest block">
+                      VERIFIED CHANNELS
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {CTO.links.map((link) => (
+                        <a
+                          key={link.platform}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${link.label} profile for ${CTO.name} (opens in a new tab)`}
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xs bg-surface-card border border-border-hairline text-xs font-mono text-text-secondary hover:text-white hover:border-border-strong transition-colors"
+                        >
+                          <span>{link.platform}</span>
+                          <ArrowUpRight className="w-3 h-3 text-text-muted" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-7 flex flex-col justify-between space-y-6 md:pl-6 md:border-l md:border-border-hairline">
+                  <div className="space-y-4 font-sans text-sm text-text-secondary leading-relaxed">
+                    <p>
+                      Apurv Nimbarge serves as Chief Technology Officer at Orbion Technologies while pursuing a B.Tech in Artificial Intelligence and Machine Learning at MIT Vishwaprayag University.
+                    </p>
+                    <p>
+                      His technical interests include AI-powered applications, computer vision, generative AI integrations, modern full-stack development, and software architecture. He contributes to technical planning, engineering practices, and the development of reliable digital products.
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-border-hairline flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex items-center gap-2 font-mono text-xs text-text-muted">
+                      <span>{CTO.location}</span>
+                      <span>•</span>
+                      <span>{CTO.institution}</span>
+                    </div>
+
+                    <a
+                      href={CTO.portfolioUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-cyan hover:text-white transition-colors"
+                      aria-label={`View developer portfolio of ${CTO.name} (opens in a new tab)`}
+                    >
+                      <span>Developer Portfolio</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </Container>
       </Section>
