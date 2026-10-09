@@ -1,12 +1,4 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="public/brand/png/orbion-banner.png">
-    <source media="(prefers-color-scheme: light)" srcset="public/brand/png/orbion-banner.png">
-    <img src="public/brand/png/orbion-banner.png" alt="Orbion Technologies — AI Operating System for Modern Businesses" width="100%">
-  </picture>
-</p>
-
-<p align="center">
   <a href="https://orbion.in">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="public/brand/svg/orbion-logo-horizontal.svg">
@@ -14,6 +6,14 @@
       <img src="public/brand/svg/orbion-logo-horizontal.svg" alt="Orbion Technologies Logo" height="44">
     </picture>
   </a>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/brand/png/orbion-banner.png">
+    <source media="(prefers-color-scheme: light)" srcset="public/brand/png/orbion-banner.png">
+    <img src="public/brand/png/orbion-banner.png" alt="Orbion Technologies — AI Operating System for Modern Businesses" width="100%">
+  </picture>
 </p>
 
 <h3 align="center">The AI Operating System for Modern Businesses</h3>
