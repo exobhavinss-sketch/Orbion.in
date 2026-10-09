@@ -18,10 +18,29 @@ export default function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [dbConfigured, setDbConfigured] = useState<boolean | null>(null);
+
+  React.useEffect(() => {
+    fetch('/api/auth/status')
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.configured === 'boolean') {
+          setDbConfigured(data.configured);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const getFriendlyErrorMessage = (err: { message?: string; code?: string; status?: number }) => {
     const code = err.code?.toUpperCase();
     const msg = err.message?.toLowerCase() || '';
+
+    if (err.status === 503 || msg.includes('temporarily unavailable') || msg.includes('database configuration')) {
+      return (
+        err.message ||
+        'Authentication is temporarily unavailable because server-side database configuration has not been enabled.'
+      );
+    }
 
     if (
       code === 'USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL' ||
@@ -114,6 +133,16 @@ export default function RegisterPage() {
               Deploy your credentials for the autonomous business operating system.
             </p>
           </div>
+
+          {/* Database Unconfigured Notification */}
+          {dbConfigured === false && !error && (
+            <div className="mb-6 p-3 rounded-xs bg-amber-950/40 border border-amber-500/30 flex items-start gap-2.5 text-amber-300 text-xs animate-fade-in">
+              <ShieldAlert className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
+              <span className="leading-relaxed">
+                Authentication is temporarily unavailable because server-side database configuration has not been enabled for this deployment.
+              </span>
+            </div>
+          )}
 
           {/* Error Notification */}
           {error && (

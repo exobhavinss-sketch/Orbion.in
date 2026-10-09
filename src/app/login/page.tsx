@@ -21,6 +21,18 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [dbConfigured, setDbConfigured] = useState<boolean | null>(null);
+
+  React.useEffect(() => {
+    fetch('/api/auth/status')
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.configured === 'boolean') {
+          setDbConfigured(data.configured);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +51,12 @@ function LoginForm() {
           status: res.error.status,
           message: res.error.message,
         });
-        if (res.error.status === 500) {
+        if (res.error.status === 503) {
+          setError(
+            res.error.message ||
+              'Authentication is temporarily unavailable because server-side database configuration has not been enabled.'
+          );
+        } else if (res.error.status === 500) {
           setError('Database connection error. Please try again shortly.');
         } else {
           setError(res.error.message || 'Invalid email or password.');
@@ -82,6 +99,16 @@ function LoginForm() {
             Enter your credentials to access the AI Operating System.
           </p>
         </div>
+
+        {/* Database Unconfigured Notification */}
+        {dbConfigured === false && !error && (
+          <div className="mb-6 p-3 rounded-xs bg-amber-950/40 border border-amber-500/30 flex items-start gap-2.5 text-amber-300 text-xs animate-fade-in">
+            <ShieldAlert className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
+            <span className="leading-relaxed">
+              Authentication is temporarily unavailable because server-side database configuration has not been enabled for this deployment.
+            </span>
+          </div>
+        )}
 
         {/* Error Notification */}
         {error && (
