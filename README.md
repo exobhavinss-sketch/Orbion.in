@@ -8,7 +8,11 @@
 
 <p align="center">
   <a href="https://orbion.in">
-    <img src="public/brand/png/orbion-logo-transparent.png" alt="Orbion Technologies Logo" height="44">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="public/brand/svg/orbion-logo-horizontal.svg">
+      <source media="(prefers-color-scheme: light)" srcset="public/brand/svg/orbion-logo-technologies-purple.svg">
+      <img src="public/brand/svg/orbion-logo-horizontal.svg" alt="Orbion Technologies Logo" height="44">
+    </picture>
   </a>
 </p>
 
@@ -19,7 +23,8 @@
 </p>
 
 <p align="center">
-  <a href="https://orbion.in"><img src="https://img.shields.io/badge/Production-orbion.in-5B4FFF?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Site"></a>
+  <a href="https://orbion-in.vercel.app/"><img src="public/brand/svg/orbion-symbol.svg" alt="Orbion Technologies" height="28"></a>
+  <a href="https://orbion-in.vercel.app/"><img src="https://img.shields.io/badge/Production-orbion.in-5B4FFF?style=for-the-badge" alt="Live Site"></a>
   <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Framework-Next.js%2015-050508?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 15"></a>
   <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/Language-TypeScript%205.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5.8"></a>
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Styling-Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"></a>
