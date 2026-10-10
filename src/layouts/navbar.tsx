@@ -50,7 +50,7 @@ export function Navbar() {
   // Close menu if viewport is resized to desktop breakpoint
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024 && mobileMenuOpen) {
+      if (window.innerWidth >= 768 && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
     };
@@ -85,7 +85,7 @@ export function Navbar() {
             : 'bg-canvas/60 backdrop-blur-sm border-b border-border-hairline/50'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 h-16 sm:h-18 flex items-center justify-between relative">
+        <div className="max-w-7xl mx-auto px-4 md:px-5 lg:px-6 xl:px-8 h-16 sm:h-18 flex items-center justify-between relative">
           {/* Brand Logo Lockup */}
           <Link
             href="/"
@@ -93,12 +93,12 @@ export function Navbar() {
             aria-label="Orbion Technologies Home"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <Logo priority size="sm" />
+            <Logo priority size="sm" className="h-[18px] min-[360px]:h-[20px] min-[390px]:h-[22px] md:h-[22px] lg:h-7" />
           </Link>
 
-          {/* Desktop Navigation Links — Centered relative to viewport */}
+          {/* Desktop Navigation Links — Centered in the central area */}
           <nav
-            className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-text-secondary absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+            className="hidden md:flex items-center justify-center flex-1 mx-2 lg:mx-6 gap-3.5 lg:gap-6 xl:gap-7 text-sm font-medium text-text-secondary pointer-events-auto"
             aria-label="Main Navigation"
           >
             {PRIMARY_NAV.map((link) => {
@@ -121,8 +121,8 @@ export function Navbar() {
           </nav>
 
           {/* Desktop CTA & Status — Grouped at far right */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0 z-10">
-            <Badge variant="status" indicatorColor="brand" className="text-[10px]">
+          <div className="hidden md:flex items-center gap-2.5 lg:gap-3 shrink-0 z-10">
+            <Badge variant="status" indicatorColor="brand" className="hidden xl:inline-flex text-[10px]">
               ARCH_V1.0
             </Badge>
 
@@ -149,7 +149,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile Header Actions (Sign In + Menu Toggle) */}
-          <div className="flex lg:hidden items-center gap-2.5 shrink-0 z-10">
+          <div className="flex md:hidden items-center gap-2.5 shrink-0 z-10">
             {session?.user ? (
               <Link href="/dashboard">
                 <Button variant="secondary" size="sm" className="h-8 px-2.5 text-xs font-mono gap-1">
@@ -186,7 +186,7 @@ export function Navbar() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
-          className="lg:hidden fixed inset-x-0 top-16 sm:top-18 bottom-0 z-40 bg-canvas overflow-y-auto animate-fade-in"
+          className="md:hidden fixed inset-x-0 top-16 sm:top-18 bottom-0 z-40 bg-canvas overflow-y-auto animate-fade-in"
         >
           <div className="min-h-full flex flex-col justify-between p-6 max-w-lg mx-auto">
             <nav className="flex flex-col space-y-1 pt-2" aria-label="Mobile Navigation">
