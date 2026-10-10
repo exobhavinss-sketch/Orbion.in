@@ -8,7 +8,7 @@ import { Menu, X, ArrowUpRight, User as UserIcon } from 'lucide-react';
 import { BRAND_ASSETS } from '@/assets/brand';
 import { PRIMARY_NAV } from '@/data/navigation';
 import { Button, Badge, Logo } from '@/components/ui';
-import { useSession } from '@/lib/auth-client';
+import { useSession } from '@/lib/auth/client';
 
 export function Navbar() {
   const { data: session } = useSession();
@@ -134,7 +134,7 @@ export function Navbar() {
                 </Button>
               </Link>
             ) : (
-              <Link href="/login">
+              <Link href="/auth/sign-in">
                 <Button variant="secondary" size="sm">
                   Sign In
                 </Button>
@@ -158,7 +158,7 @@ export function Navbar() {
                 </Button>
               </Link>
             ) : (
-              <Link href="/login">
+              <Link href="/auth/sign-in">
                 <Button variant="secondary" size="sm" className="h-8 px-2.5 text-xs">
                   Sign In
                 </Button>
@@ -230,12 +230,12 @@ export function Navbar() {
                 </Link>
               ) : (
                 <div className="grid grid-cols-2 gap-2">
-                  <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/auth/sign-in" onClick={() => setMobileMenuOpen(false)}>
                     <Button variant="secondary" size="md" className="w-full justify-center h-10">
                       Sign In
                     </Button>
                   </Link>
-                  <Link href="/register" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/auth/sign-up" onClick={() => setMobileMenuOpen(false)}>
                     <Button variant="secondary" size="md" className="w-full justify-center h-10">
                       Register
                     </Button>

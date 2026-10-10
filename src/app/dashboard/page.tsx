@@ -1,21 +1,21 @@
 import React from 'react';
-import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/auth/server';
 import { Badge, Button } from '@/components/ui';
 import { LogoutButton } from './dashboard-client';
 import {
   Activity,
   Cpu,
   Database,
-  Layers,
   ShieldCheck,
   User as UserIcon,
   Clock,
   Terminal,
   ArrowRight,
 } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Dashboard — Orbion Technologies OS',
@@ -27,15 +27,13 @@ export const metadata = {
 };
 
 export default async function DashboardPage() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const sessionResult = await auth.getSession();
+  const session = (sessionResult as any)?.session || (sessionResult as any)?.data?.session;
+  const user = (sessionResult as any)?.user || (sessionResult as any)?.data?.user;
 
-  if (!session) {
-    redirect('/login?callbackUrl=/dashboard');
+  if (!session || !user) {
+    redirect('/auth/sign-in?callbackUrl=/dashboard');
   }
-
-  const user = session.user;
 
   return (
     <div className="min-h-screen bg-canvas pt-24 pb-20 px-4 sm:px-6 lg:px-8">
@@ -45,10 +43,10 @@ export default async function DashboardPage() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Badge variant="status" indicatorColor="cyan">
-                LOCAL SYSTEM SESSION ACTIVE
+                NEON AUTH SESSION ACTIVE
               </Badge>
               <span className="font-mono text-[10px] text-text-muted">
-                SESSION_ID: {session.session.id.slice(0, 12)}...
+                SESSION_ID: {String(session.id || '').slice(0, 12)}...
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-semibold text-text-pure tracking-tight">
@@ -76,9 +74,9 @@ export default async function DashboardPage() {
               <span className="font-mono text-[11px] uppercase tracking-wider">Cloud Database</span>
               <Database className="w-4 h-4 text-brand-cyan" />
             </div>
-            <div className="text-xl font-semibold text-text-pure font-mono">PostgreSQL</div>
+            <div className="text-xl font-semibold text-text-pure font-mono">Serverless Postgres</div>
             <div className="text-[11px] text-text-secondary">
-              Provider: <code className="text-text-muted font-mono">Supabase Hosted DB</code>
+              Provider: <code className="text-text-muted font-mono">Neon Database</code>
             </div>
           </div>
 
@@ -87,8 +85,8 @@ export default async function DashboardPage() {
               <span className="font-mono text-[11px] uppercase tracking-wider">Auth Framework</span>
               <ShieldCheck className="w-4 h-4 text-brand-accent" />
             </div>
-            <div className="text-xl font-semibold text-text-pure font-mono">Better Auth v1.7</div>
-            <div className="text-[11px] text-text-secondary">Prisma 7 Adapter &amp; PostgreSQL Driver</div>
+            <div className="text-xl font-semibold text-text-pure font-mono">Neon Auth SDK</div>
+            <div className="text-[11px] text-text-secondary">@neondatabase/auth &amp; auth-ui</div>
           </div>
 
           <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
@@ -97,7 +95,7 @@ export default async function DashboardPage() {
               <Activity className="w-4 h-4 text-emerald-400" />
             </div>
             <div className="text-xl font-semibold text-text-pure font-mono">&lt; 1 ms</div>
-            <div className="text-[11px] text-text-secondary">Zero-network local execution</div>
+            <div className="text-[11px] text-text-secondary">Fast path signed cookie cache</div>
           </div>
 
           <div className="bg-surface-subtle border border-border-hairline rounded-sm p-5 space-y-2">
@@ -148,17 +146,19 @@ export default async function DashboardPage() {
                 <span className="text-text-muted uppercase text-[10px] block mb-1">Verification Status</span>
                 <span className="text-emerald-400 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  Local Verified Account
+                  Verified Account
                 </span>
               </div>
 
-              <div>
-                <span className="text-text-muted uppercase text-[10px] block mb-1">Session Expiration</span>
-                <div className="text-text-secondary flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-text-muted" />
-                  <span>{new Date(session.session.expiresAt).toLocaleString()}</span>
+              {session.expiresAt && (
+                <div>
+                  <span className="text-text-muted uppercase text-[10px] block mb-1">Session Expiration</span>
+                  <div className="text-text-secondary flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-text-muted" />
+                    <span>{new Date(session.expiresAt).toLocaleString()}</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -180,13 +180,13 @@ export default async function DashboardPage() {
                   $ orbion-os --version
                 </p>
                 <p className="text-text-muted">
-                  &gt; Orbion Technologies Architecture v1.0.0 (Production Node Next.js 15.2.1 / React 19)
+                  &gt; Orbion Technologies Architecture v1.0.0 (Node Next.js 15 / React 19)
                 </p>
                 <p className="text-text-muted">
-                  &gt; Database Storage: Supabase PostgreSQL engine (Enterprise cloud data persistence)
+                  &gt; Authentication Engine: Neon Auth Serverless PostgreSQL Integration
                 </p>
                 <p className="text-emerald-400">
-                  &gt; Session Status: Active session for {user.email}. Authentication validated server-side.
+                  &gt; Session Status: Active session for {user.email}. Authenticated via Neon Auth.
                 </p>
               </div>
 

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import '@neondatabase/auth-ui/css';
+import { Providers } from './providers';
 import { COMPANY, BRAND_ASSETS } from '@/lib/constants';
 import { Navbar, Footer } from '@/layouts';
 
@@ -181,16 +183,18 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        {/* Global Persistent Header */}
-        <Navbar />
+        <Providers>
+          {/* Global Persistent Header */}
+          <Navbar />
 
-        {/* Primary Content Target */}
-        <main id="main-content" className="flex-1 w-full">
-          {children}
-        </main>
+          {/* Primary Content Target */}
+          <main id="main-content" className="flex-1 w-full">
+            {children}
+          </main>
 
-        {/* Global Persistent Footer */}
-        <Footer />
+          {/* Global Persistent Footer */}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
