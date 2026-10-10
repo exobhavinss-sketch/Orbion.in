@@ -1,6 +1,60 @@
 import { TeamMember } from '@/types';
 import { FOUNDER } from './founder';
 
+export const FOUNDER_MEMBER: TeamMember = {
+  id: 'bhavin-shankur',
+  name: 'Bhavin Shankur',
+  role: 'Founder & Chief Executive Officer (CEO)',
+  title: 'Founder & CEO',
+  department: 'EXECUTIVE LEADERSHIP',
+  degree: 'B.Tech in Computer Science & Engineering',
+  field: 'Artificial Intelligence & Machine Learning',
+  institution: 'MIT Vishwaprayag University',
+  location: 'Solapur, Maharashtra, India',
+  initials: 'BS',
+  description:
+    'Bhavin Shankur serves as Founder & Chief Executive Officer at Orbion Technologies while pursuing a B.Tech in Computer Science & Engineering specializing in Artificial Intelligence and Machine Learning at MIT Vishwaprayag University. His technical interests include cognitive runtime architecture, autonomous agent loops, Model Context Protocol (MCP) integrations, systems engineering, and deterministic verification. He directs the architectural vision, product strategy, and core systems development of Orbion Technologies.',
+  portfolioUrl: 'https://developerportfolio-theta.vercel.app/',
+  focusAreas: [
+    'Cognitive Runtime Architecture',
+    'Model Context Protocol (MCP)',
+    'Autonomous Agent Loops',
+    'Deterministic Verification',
+    'Distributed Systems',
+  ],
+  links: [
+    {
+      platform: 'GitHub',
+      label: 'GitHub',
+      url: 'https://github.com/exobhavinss-sketch',
+      username: 'exobhavinss-sketch',
+    },
+    {
+      platform: 'LinkedIn',
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/bhavin-shankur-8421a0371',
+      username: 'bhavin-shankur',
+    },
+    {
+      platform: 'X',
+      label: 'X (Twitter)',
+      url: 'https://x.com/BhavinShankur',
+      username: '@BhavinShankur',
+    },
+  ],
+  portfolios: [
+    {
+      id: 'developer',
+      title: 'Developer Portfolio',
+      category: 'TECHNICAL & ENGINEERING',
+      subtitle: 'Technical work, AI systems & engineering',
+      description: "Explore Bhavin's technical projects, system architecture experiments, and development projects.",
+      url: 'https://developerportfolio-theta.vercel.app/',
+      actionText: 'View Developer Portfolio',
+    },
+  ],
+};
+
 export const CTO: TeamMember = {
   id: 'apurv-nimbarge',
   name: 'Apurv Nimbarge',
@@ -11,9 +65,17 @@ export const CTO: TeamMember = {
   field: 'Artificial Intelligence & Machine Learning',
   institution: 'MIT Vishwaprayag University',
   location: 'Solapur, Maharashtra, India',
+  initials: 'AN',
   description:
     'Apurv Nimbarge serves as Chief Technology Officer at Orbion Technologies while pursuing a B.Tech in Artificial Intelligence and Machine Learning at MIT Vishwaprayag University. His technical interests include AI-powered applications, computer vision, generative AI integrations, modern full-stack development, and software architecture. He contributes to technical planning, engineering practices, and the development of reliable digital products.',
   portfolioUrl: 'https://developer-portfolio-ruby-eight.vercel.app/',
+  focusAreas: [
+    'Computer Vision & Perception',
+    'Generative AI Integrations',
+    'Full-Stack Software Architecture',
+    'API Reliability & Infrastructure',
+    'Cloud Systems Engineering',
+  ],
   links: [
     {
       platform: 'GitHub',
@@ -45,22 +107,6 @@ export const CTO: TeamMember = {
       actionText: 'View Developer Portfolio',
     },
   ],
-};
-
-export const FOUNDER_MEMBER: TeamMember = {
-  id: 'bhavin-shankur',
-  name: FOUNDER.name,
-  role: FOUNDER.role,
-  title: 'Founder & CEO',
-  department: 'EXECUTIVE LEADERSHIP',
-  degree: `${FOUNDER.degree} — ${FOUNDER.field}`,
-  field: FOUNDER.field,
-  institution: FOUNDER.institution,
-  location: 'Solapur, Maharashtra, India',
-  description: FOUNDER.vision,
-  bio: FOUNDER.bio,
-  links: FOUNDER.links,
-  portfolios: FOUNDER.portfolios,
 };
 
 export const TEAM_MEMBERS: TeamMember[] = [FOUNDER_MEMBER, CTO];

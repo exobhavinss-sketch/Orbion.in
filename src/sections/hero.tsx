@@ -54,11 +54,11 @@ export function HeroSection() {
                 variant="secondary"
                 size="lg"
                 onClick={() => {
-                  const el = document.getElementById('founder');
+                  const el = document.getElementById('team') || document.getElementById('founder');
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Meet the Founder
+                Meet the Team
               </Button>
             </div>
 

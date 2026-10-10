@@ -101,15 +101,23 @@ export function Navbar() {
             className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-text-secondary absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
             aria-label="Main Navigation"
           >
-            {PRIMARY_NAV.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-text-secondary hover:text-text-pure transition-colors duration-150 py-1 font-sans text-[13px] tracking-normal whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {PRIMARY_NAV.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`transition-colors duration-150 py-1 font-sans text-[13px] tracking-normal whitespace-nowrap ${
+                    isActive
+                      ? 'text-text-pure font-semibold'
+                      : 'text-text-secondary hover:text-text-pure'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop CTA & Status — Grouped at far right */}
@@ -186,17 +194,25 @@ export function Navbar() {
                 NAVIGATION DIRECTORY
               </span>
 
-              {PRIMARY_NAV.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(link.href, e)}
-                  className="flex items-center justify-between px-3 py-3.5 rounded-xs text-base font-medium text-text-primary hover:text-white hover:bg-surface-card active:bg-surface-card transition-colors border-b border-border-hairline/40 min-h-[48px]"
-                >
-                  <span className="text-base font-sans font-medium text-text-primary tracking-tight">{link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-text-muted" />
-                </Link>
-              ))}
+              {PRIMARY_NAV.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(link.href, e)}
+                    className={`flex items-center justify-between px-3 py-3.5 rounded-xs text-base font-medium transition-colors border-b border-border-hairline/40 min-h-[48px] ${
+                      isActive
+                        ? 'text-white bg-surface-card border-l-2 border-brand-accent'
+                        : 'text-text-primary hover:text-white hover:bg-surface-card active:bg-surface-card'
+                    }`}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <span className="text-base font-sans font-medium tracking-tight">{link.label}</span>
+                    <ArrowUpRight className={`w-4 h-4 ${isActive ? 'text-brand-cyan' : 'text-text-muted'}`} />
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="pt-6 mt-6 border-t border-border-hairline flex flex-col gap-3">

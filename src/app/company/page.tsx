@@ -347,9 +347,9 @@ export default function CompanyPage() {
                 Explore Technology Stack
               </Button>
             </Link>
-            <Link href="/founder">
+            <Link href="/team">
               <Button variant="secondary" size="md">
-                Meet the Founder
+                Meet the Team
               </Button>
             </Link>
           </div>

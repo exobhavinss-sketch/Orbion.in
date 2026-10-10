@@ -40,8 +40,12 @@ export const metadata: Metadata = {
     'Model Context Protocol',
     'Business Automation',
     'Bhavin Shankur',
+    'Apurv Nimbarge',
   ],
-  authors: [{ name: 'Bhavin Shankur', url: COMPANY.domain }],
+  authors: [
+    { name: 'Bhavin Shankur', url: COMPANY.domain },
+    { name: 'Apurv Nimbarge', url: COMPANY.domain },
+  ],
   creator: COMPANY.name,
   publisher: COMPANY.name,
   alternates: {
@@ -116,6 +120,28 @@ const jsonLd = {
           'https://www.instagram.com/bhavinnh/',
         ],
       },
+      member: [
+        {
+          '@type': 'Person',
+          name: 'Bhavin Shankur',
+          jobTitle: 'Founder & CEO',
+          sameAs: [
+            'https://www.linkedin.com/in/bhavin-shankur-8421a0371',
+            'https://github.com/exobhavinss-sketch',
+            'https://x.com/BhavinShankur',
+          ],
+        },
+        {
+          '@type': 'Person',
+          name: 'Apurv Nimbarge',
+          jobTitle: 'Chief Technology Officer (CTO)',
+          sameAs: [
+            'https://www.linkedin.com/in/apurva-nimbarge-a40310353',
+            'https://github.com/Apurva200631',
+            'https://x.com/apurv2116',
+          ],
+        },
+      ],
       description:
         'Orbion Technologies is building an AI Operating System for modern businesses, enabling organizations to operate with intelligent, autonomous AI systems capable of executing workflows across business functions.',
     },

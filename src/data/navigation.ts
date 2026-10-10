@@ -4,7 +4,7 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: 'Platform', href: '/#platform' },
   { label: 'Technology', href: '/technology' },
   { label: 'Company', href: '/company' },
-  { label: 'Founder', href: '/founder' },
+  { label: 'Team', href: '/team' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -33,15 +33,15 @@ export const FOOTER_SECTIONS = [
       { label: 'About Orbion Technologies', href: '/company' },
       { label: 'Thesis & Origin', href: '/company#thesis' },
       { label: 'Current Stage', href: '/company#stage' },
-      { label: 'Leadership', href: '/founder' },
+      { label: 'Leadership Team', href: '/team' },
     ],
   },
   {
-    title: 'Founder',
+    title: 'Team',
     links: [
-      { label: 'Meet Bhavin', href: '/founder' },
-      { label: 'Academic Foundation', href: '/founder#academics' },
-      { label: 'Research Interests', href: '/founder#interests' },
+      { label: 'Meet the Team', href: '/team' },
+      { label: 'Leadership Profiles', href: '/team#leadership' },
+      { label: 'Academic Foundation', href: '/team#academics' },
       { label: 'Direct Dialogue', href: '/contact' },
     ],
   },

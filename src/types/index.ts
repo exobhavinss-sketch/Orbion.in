@@ -59,4 +59,6 @@ export interface TeamMember {
   portfolioUrl?: string;
   links: SocialLink[];
   portfolios?: PortfolioLink[];
+  initials?: string;
+  focusAreas?: string[];
 }

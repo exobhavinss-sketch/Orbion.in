@@ -55,12 +55,12 @@ export function Footer() {
       ],
     },
     {
-      title: 'Founder',
+      title: 'Team',
       links: [
-        { label: 'Bhavin Shankur', href: '/founder' },
-        { label: 'Academic Dossier', href: '/founder#academics' },
-        { label: 'AI/ML Focus', href: '/founder#interests' },
-        { label: 'Direct Dialogue', href: '/contact' },
+        { label: 'Meet the Team', href: '/team' },
+        { label: 'Bhavin Shankur (CEO)', href: '/team#bhavin-shankur' },
+        { label: 'Apurv Nimbarge (CTO)', href: '/team#apurv-nimbarge' },
+        { label: 'Academic Dossier', href: '/team#academics' },
       ],
     },
   ];
