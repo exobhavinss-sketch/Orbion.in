@@ -1,7 +1,7 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { auth } from '@/lib/auth/server';
+import { auth, isAuthConfigured } from '@/lib/auth/server';
 import { Badge, Button } from '@/components/ui';
 import { LogoutButton } from './dashboard-client';
 import {
@@ -27,7 +27,21 @@ export const metadata = {
 };
 
 export default async function DashboardPage() {
-  const sessionResult = await auth.getSession();
+  if (!isAuthConfigured()) {
+    redirect('/auth/sign-in?callbackUrl=/dashboard');
+  }
+
+  let sessionResult = null;
+  try {
+    sessionResult = await auth.getSession();
+  } catch (error) {
+    console.error(
+      '[Dashboard Session Error]:',
+      error instanceof Error ? error.message : error
+    );
+    redirect('/auth/sign-in?callbackUrl=/dashboard');
+  }
+
   const session = (sessionResult as any)?.session || (sessionResult as any)?.data?.session;
   const user = (sessionResult as any)?.user || (sessionResult as any)?.data?.user;
 

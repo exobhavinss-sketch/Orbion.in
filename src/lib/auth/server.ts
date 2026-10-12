@@ -1,28 +1,38 @@
 import { createNeonAuth, type NeonAuth } from '@neondatabase/auth/next/server';
 
 function getAuthConfig() {
-  const baseUrl = process.env.NEON_AUTH_BASE_URL;
-  const cookieSecret = process.env.NEON_AUTH_COOKIE_SECRET;
+  const baseUrl = process.env.NEON_AUTH_BASE_URL?.trim().replace(/\/+$/, '');
+  const cookieSecret = process.env.NEON_AUTH_COOKIE_SECRET?.trim();
 
-  if (!baseUrl || !cookieSecret) {
+  const missing: string[] = [];
+  if (!baseUrl) missing.push('NEON_AUTH_BASE_URL');
+  if (!cookieSecret) missing.push('NEON_AUTH_COOKIE_SECRET');
+
+  if (missing.length > 0) {
     throw new Error(
-      'Neon Auth configuration error: Missing NEON_AUTH_BASE_URL or NEON_AUTH_COOKIE_SECRET. Please ensure these environment variables are configured in your deployment environment.'
+      `Neon Auth configuration error: Missing environment variable(s): ${missing.join(', ')}. Please configure these in your deployment environment.`
     );
   }
 
-  if (cookieSecret.length < 32) {
+  if (cookieSecret!.length < 32) {
     throw new Error(
       'Neon Auth configuration error: NEON_AUTH_COOKIE_SECRET must be at least 32 characters long.'
     );
   }
 
   return {
-    baseUrl,
+    baseUrl: baseUrl!,
     cookies: {
-      secret: cookieSecret,
+      secret: cookieSecret!,
       sessionDataTtl: 300,
     },
   };
+}
+
+export function isAuthConfigured(): boolean {
+  const baseUrl = process.env.NEON_AUTH_BASE_URL?.trim();
+  const cookieSecret = process.env.NEON_AUTH_COOKIE_SECRET?.trim();
+  return Boolean(baseUrl && cookieSecret && cookieSecret.length >= 32);
 }
 
 let authInstance: NeonAuth | null = null;
